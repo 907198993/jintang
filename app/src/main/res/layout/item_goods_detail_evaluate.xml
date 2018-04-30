@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@color/white"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        >
+
+        <com.github.customview.MyLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            app:my_ll_top_line="true"
+            >
+
+            <com.github.customview.MyImageView
+                android:id="@+id/iv_goods_detail_evaluate"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@color/background_f2"
+                android:scaleType="centerCrop"
+                android:src="@drawable/people"
+                app:my_iv_radius="15dp"
+                />
+
+            <TextView
+                android:id="@+id/tv_goods_detail_evaluate_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                tools:text="掌声"
+                />
+
+            <TextView
+                android:id="@+id/tv_goods_detail_evaluate_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="2016/12/10"
+                />
+        </com.github.customview.MyLinearLayout>
+
+        <TextView
+            android:id="@+id/tv_goods_detail_evaluate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            tools:text="给卖家一个大好评！客服态度很热情，来说说薰衣草精油的使用分享，一滴就可以涂抹一个色素沉淀疤痕好吸收，而且味道 …"
+            />
+    </LinearLayout>
+</LinearLayout>

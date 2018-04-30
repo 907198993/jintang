@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@color/white"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        >
+        <ImageView
+            android:id="@+id/iv_shequ_huati"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/shequ10"
+            android:layout_marginRight="3dp"
+            />
+        <TextView
+            android:id="@+id/tv_shequ_huati"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="更多热门话题"
+            android:textColor="@color/gray_33"
+            android:gravity="center"
+            />
+    </LinearLayout>
+</LinearLayout>

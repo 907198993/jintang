@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/shop_category_line"
+    android:orientation="vertical">
+    <include layout="@layout/app_title"/>
+    <com.sk.jintang.view.ProgressLayout
+        android:id="@id/pl_load"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/background_f2"
+            android:orientation="vertical">
+
+            <com.github.customview.MyLinearLayout
+                android:id="@+id/ll_goods_order"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                app:my_ll_border_width="2px"
+                app:my_ll_bottom_line="true">
+
+                <TextView
+                    android:id="@+id/tv_goods_price"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="价格"
+                    android:textColor="@color/gray_33"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tv_goods_xl"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="销量"
+                    android:textColor="@color/gray_33"
+                    android:textSize="15sp" />
+
+            </com.github.customview.MyLinearLayout>
+
+            <in.srain.cube.views.ptr.PtrClassicFrameLayout
+                android:id="@id/pcfl_refresh"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:ptr_ratio_of_header_height_to_refresh="1.2"
+                app:ptr_resistance="2.1">
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rv_goods_class"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="5dp">
+
+                </android.support.v7.widget.RecyclerView>
+            </in.srain.cube.views.ptr.PtrClassicFrameLayout>
+
+        </LinearLayout>
+    </com.sk.jintang.view.ProgressLayout>
+
+</LinearLayout>

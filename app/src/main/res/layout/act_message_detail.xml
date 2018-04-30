@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/background_f2"
+    >
+<include layout="@layout/app_title"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/white"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="25dp"
+        android:paddingTop="25dp"
+        android:layout_marginTop="5dp"
+        >
+        <TextView
+            android:id="@+id/tv_msgdetail_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="恭喜您，成功注册！"
+            android:textColor="@color/gray_33"
+            android:layout_marginBottom="20dp"
+            android:textSize="16sp"
+            />
+        <TextView
+            android:id="@+id/tv_msgdetail_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="注册一个组件使用regsvr32 xxx.dll命令。其中DLL（即xxx.dll）输出四个函数。DllGetClassObject，DllRegisterServer，DllUnregisterServer和DllMain。下面简单介绍这四个函数的用途 DllGetClassObject用于返回classfactory对象指针，classfactory用于创建组件实例，详情参看《COM技术内幕》
+DllRegisterServer由词义看出其用于注册组件，在windows的注册表中给某个dll的登记。注意DLL（xxx.dll）内部包含一个或多个组件。regsvr32 -s xxx.dll即regsvr32调用xxx.dll中的此函数完成组件的注册。多说一句，注册是为了能够索引到xxx.dll然后创建组件。"
+            />
+    </LinearLayout>
+</LinearLayout>

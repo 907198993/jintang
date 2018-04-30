@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@color/white"
+    >
+    <com.github.customview.MyLinearLayout
+        android:id="@+id/ll_goods_shaixuan_city"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        app:my_ll_solid="#e0e0e0"
+        app:my_ll_corner_radius="4dp"
+        >
+        <ImageView
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:src="@drawable/order2"
+            />
+        <com.github.customview.MyTextView
+            android:id="@+id/tv_goods_shaixuan_city"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="上海"
+            android:gravity="center"
+            android:textColor="#ffffff"
+            android:textSize="13sp"
+            android:layout_marginRight="7dp"
+            android:layout_marginLeft="3dp"
+            />
+
+
+    </com.github.customview.MyLinearLayout>
+</LinearLayout>

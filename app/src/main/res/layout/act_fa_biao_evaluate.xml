@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/background_f2"
+              android:orientation="vertical"
+    >
+
+    <include layout="@layout/app_title"/>
+
+    <com.sk.jintang.view.ProgressLayout
+        android:id="@id/pl_load"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_fa_biao_pingjia"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/tv_fbpj_commit">
+            </android.support.v7.widget.RecyclerView>
+
+        <com.github.customview.MyTextView
+            android:id="@+id/tv_fbpj_commit"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:text="发布"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            app:my_tv_corner_radius="4dp"
+            app:my_tv_press="@color/green_press"
+            app:my_tv_solid="@color/green"
+            />
+
+    </com.sk.jintang.view.ProgressLayout>
+</LinearLayout>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:background="@color/white"
+    >
+    <com.github.customview.MyLinearLayout
+        android:layout_width="94dp"
+        android:layout_height="94dp"
+        android:orientation="vertical"
+        app:my_ll_border_width="1px"
+        app:my_ll_border_dashGap="2dp"
+        app:my_ll_border_dashWidth="3dp"
+        app:my_ll_border_color="@color/gray_99"
+        android:gravity="center"
+        >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/my23"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="添加图片"
+            android:layout_marginTop="7dp"
+            />
+    </com.github.customview.MyLinearLayout>
+</LinearLayout>

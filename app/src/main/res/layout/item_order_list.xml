@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.daimajia.swipe.SwipeLayout
+    android:id="@+id/sl_my_order"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/tv_my_order_delete"
+        android:layout_width="50dp"
+        android:layout_height="match_parent"
+        android:text="删\n\n除"
+        android:gravity="center"
+        android:background="@color/red"
+        android:textSize="19sp"
+        android:textColor="@color/white"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/background_f2"
+        android:orientation="vertical"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:text="订单号:"
+                />
+
+            <TextView
+                android:id="@+id/tv_order_no"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                tools:text="TD123456"
+                />
+
+            <TextView
+                android:id="@+id/tv_order_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/green"
+                tools:text="退款中"
+                />
+        </LinearLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_order_goods"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="2px"
+            >
+
+        </android.support.v7.widget.RecyclerView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@color/white"
+            android:gravity="center_vertical|right"
+            android:orientation="horizontal"
+            android:paddingRight="10dp"
+            >
+
+            <TextView
+                android:id="@+id/tv_order_create_time"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:maxLines="1"
+                tools:text="2017-09-09"
+                />
+
+            <TextView
+                android:id="@+id/tv_order_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="共1件商品 "
+                />
+
+            <TextView
+                android:id="@+id/tv_order_total"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:textSize="15sp"
+                tools:text="合计:¥97.00"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2px"
+            android:background="@color/white"
+            android:gravity="center_vertical|right"
+            android:orientation="horizontal"
+            android:paddingBottom="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="10dp"
+            >
+
+            <com.github.customview.MyTextView
+                android:id="@+id/tv_order_qxdd"
+                android:layout_width="79dp"
+                android:layout_height="29dp"
+                android:gravity="center"
+                android:text="取消订单"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                app:my_tv_corner_radius="4dp"
+                app:my_tv_solid="#e0e0e0"
+                />
+
+            <com.github.customview.MyTextView
+                android:id="@+id/tv_order_qzf"
+                android:layout_width="79dp"
+                android:layout_height="29dp"
+                android:layout_marginLeft="10dp"
+                android:gravity="center"
+                android:text="去支付"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                app:my_tv_corner_radius="4dp"
+                app:my_tv_solid="@color/green"
+                />
+
+            <com.github.customview.MyTextView
+                android:id="@+id/tv_order_sqtk"
+                android:layout_width="79dp"
+                android:layout_height="29dp"
+                android:layout_marginLeft="10dp"
+                android:gravity="center"
+                android:text="申请退款"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                app:my_tv_corner_radius="4dp"
+                app:my_tv_solid="#e0e0e0"
+                />
+
+            <com.github.customview.MyTextView
+                android:id="@+id/tv_order_qrsh"
+                android:layout_width="79dp"
+                android:layout_height="29dp"
+                android:layout_marginLeft="10dp"
+                android:gravity="center"
+                android:text="确认收货"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                app:my_tv_corner_radius="4dp"
+                app:my_tv_solid="@color/green"
+                />
+
+            <com.github.customview.MyTextView
+                android:id="@+id/tv_order_qpj"
+                android:layout_width="79dp"
+                android:layout_height="29dp"
+                android:layout_marginLeft="10dp"
+                android:gravity="center"
+                android:text="去评价"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                app:my_tv_corner_radius="4dp"
+                app:my_tv_solid="@color/green"
+                />
+        </LinearLayout>
+    </LinearLayout>
+
+</com.daimajia.swipe.SwipeLayout>

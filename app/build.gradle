@@ -1,0 +1,181 @@
+apply plugin: 'com.android.application'
+apply plugin: 'me.tatarka.retrolambda'
+android {
+    compileSdkVersion 26
+    buildToolsVersion "26.0.1"
+    defaultConfig {
+        applicationId "com.sk.jintang"
+        minSdkVersion 18
+        targetSdkVersion 26
+        versionCode 11
+        versionName "1.1.1"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+
+        manifestPlaceholders  = [
+                JPUSH_PKGNAME : applicationId,
+                JPUSH_APPKEY : "d1409a2dcb621ec09d45b36a", //JPush上注册的包名对应的appkey.
+                JPUSH_CHANNEL : "developer-default", //暂时填写默认值即可.
+        ]
+       ndk {
+            //选择要添加的对应cpu类型的.so库
+            abiFilters 'armeabi-v7a', 'arm64-v8a'
+            //还可以添加 'armeabi', 'x86'
+        }
+
+        multiDexEnabled true
+    }
+    //添加如下配置就ok了
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+    signingConfigs {
+        release {
+            storeFile file("../zhizhong.jks")
+            storePassword "123456"
+            keyAlias "zhizhong"
+            keyPassword "123456"
+        }
+    }
+    buildTypes {
+        debug {
+            signingConfig signingConfigs.release
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'),
+                    'proguard-rules.pro'
+
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+    }
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+
+        }
+    }
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
+    }
+
+}
+
+dependencies {
+
+    //    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:26.+'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:design:26.+'
+    compile(name: 'fastShape', ext: 'aar')
+    compile(name: 'androidutils', ext: 'aar')
+    compile(name: 'baseclass', ext: 'aar')
+    compile(name: 'retrofitutil', ext: 'aar')
+    compile(name: 'download', ext: 'aar')
+    compile(name: 'viewpagerindicator', ext: 'aar')
+    compile 'com.orhanobut:logger:2.1.1'
+    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
+    compile 'com.squareup.retrofit2:retrofit:2.1.0'
+    compile 'com.squareup.retrofit2:converter-scalars:2.1.0'
+    compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
+    compile 'org.jsoup:jsoup:1.10.2'
+    compile 'com.jakewharton:butterknife:8.5.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
+    compile 'io.reactivex:rxandroid:1.2.1'
+    compile 'io.reactivex:rxjava:1.1.6'
+    compile 'com.pnikosis:materialish-progress:1.7'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    //轮播
+    compile 'com.youth.banner:banner:1.4.9'
+    //仿iOS的PickerView控件，有时间选择器和选项选择器，
+    compile 'com.contrarywind:Android-PickerView:3.2.6'
+    compile 'com.sunfusheng:marqueeview:1.2.0'
+    //圆形图片
+    compile 'de.hdodenhof:circleimageview:2.1.0'
+    //下拉刷新
+
+    //    compile 'in.srain.cube:ultra-ptr:1.0.11'
+    compile 'com.android.support:cardview-v7:26.0.0-alpha1'
+    // 仿iphone 控件
+    compile 'com.github.zcweng:switch-button:0.0.3@aar'
+    // tablayout
+    compile 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar'
+    //微信支付
+    compile files('libs/libammsdk.jar')
+    compile 'cz.msebera.android:httpclient:4.4.1.2'
+    //图片压缩
+    compile 'top.zibin:Luban:1.1.3'
+    compile 'com.github.ome450901:SimpleRatingBar:1.3.1'
+    compile 'me.zhanghai.android.materialratingbar:library:1.0.2'
+    compile project(':xrichtext')
+    compile files('libs/Msc.jar')
+    compile files('libs/Sunflower.jar')
+    compile 'cn.yipianfengye.android:zxing-library:2.2'
+    //二维码扫描
+
+    //    compile 'cn.bingoogolapple:bga-qrcodecore:1.1.7@aar'
+
+    //    compile 'cn.bingoogolapple:bga-zxing:1.1.7@aar'
+
+    //    compile 'com.google.zxing:core:3.3.0'
+
+    //    compile 'com.github.XuDaojie:QRCode-Android:v0.4.2'
+    compile files('libs/alipaySdk-20170725.jar')
+    compile files('libs/SocialSDK_QQ_Simplify.jar')
+    compile files('libs/SocialSDK_Sina_Simplify.jar')
+    compile files('libs/SocialSDK_WeChat_Simplify.jar')
+    compile files('libs/umeng_social_api.jar')
+    compile files('libs/umeng_social_net.jar')
+    compile files('libs/umeng_social_shareview.jar')
+    compile files('libs/umeng_social_tool.jar')
+    compile 'com.android.support:multidex:1.0.1'
+    //环信客服SDK
+
+    //    compile 'com.hyphenate:kefu-easeui-android:latest.release'
+    compile(name: 'mylibrary', ext: 'aar')
+    //图片压缩
+    compile 'top.zibin:Luban:1.1.3'
+    //实现向ios系统上类似于微信上删除对话框的功能
+    compile 'com.daimajia.swipelayout:library:1.2.0@aar'
+    //极光推送
+    compile 'cn.jiguang.sdk:jpush:3.0.3'
+    // 此处以JPush 3.0.3 版本为例。
+    compile 'cn.jiguang.sdk:jcore:1.1.1'
+    // 此处以JCore 1.1.1 版本为例。
+
+    //图片裁剪
+    compile 'com.soundcloud.android:android-crop:1.0.1@aar'
+    //支持双指/双击缩放的 ImageView
+    compile 'com.bm.photoview:library:1.4.1'
+    compile 'com.android.support:cardview-v7:26.0.0-alpha1'
+    compile 'cn.jiguang.sdk:jpush:3.1.1'
+    // 此处以JPush 3.1.1 版本为例。
+    compile 'cn.jiguang.sdk:jcore:1.1.9'
+//    compile files('libs/BaiduLBS_Android.jar')
+    compile files('libs/baidumapapi_search_v4_2_1.jar')
+    compile files('libs/baidumapapi_base_v4_2_1.jar')
+    compile files('libs/baidumapapi_search_v4_2_1.jar')
+    compile files('libs/baidumapapi_util_v4_2_1.jar')
+    compile files('libs/baidumapapi_cloud_v4_2_1.jar')
+    compile files('libs/baidumapapi_radar_v4_2_1.jar')
+    compile files('libs/locSDK_6.13.jar')
+    compile project(':easeui')
+    compile files('libs/baidumapapi_map_v4_2_1.jar')
+    compile 'com.facebook.fresco:fresco:1.2.0'
+    compile 'jp.wasabeef:fresco-processors:2.1.0'
+    compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.25'
+    compile 'com.github.florent37:viewanimator:1.0.5'
+
+}

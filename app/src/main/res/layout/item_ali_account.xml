@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@color/white"
+    >
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:background="@color/white"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    >
+    <TextView
+        android:id="@+id/tv_account_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="支付宝账户："
+        />
+    <TextView
+        android:id="@+id/tv_ali_account"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        tools:text="123123****12323"
+        />
+    <ImageView
+        android:id="@+id/iv_ali_default"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/order17"
+        />
+</LinearLayout>
+    <com.github.customview.MyTextView
+        android:id="@+id/tv_ali_account_delete"
+        android:layout_alignParentRight="true"
+        android:layout_width="50dp"
+        android:layout_height="match_parent"
+        android:text="删除"
+        android:lineSpacingExtra="6dp"
+        android:gravity="center"
+        android:layout_gravity="right"
+        app:my_tv_solid="@color/green"
+        app:my_tv_press="@color/green_press"
+        android:textColor="@color/white"
+        android:visibility="gone"
+        />
+</FrameLayout>

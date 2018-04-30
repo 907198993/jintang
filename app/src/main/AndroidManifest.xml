@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest package="com.sk.jintang"
+          xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+
+    <!-- 摄像头、手电筒 -->
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <uses-feature android:name="android.hardware.camera.flash" />
+
+
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+
+
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+
+    <!--&lt;!&ndash;极光&ndash;&gt;-->
+    <!--<permission-->
+        <!--android:name="com.sk.jintang.permission.JPUSH_MESSAGE"-->
+        <!--android:protectionLevel="signature" />-->
+    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
+    <!--<uses-permission android:name="android.permission.READ_PHONE_STATE" />-->
+    <!--<uses-permission android:name="android.permission.VIBRATE" />-->
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+
+    <!-- Optional. Required for location feature -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" /> <!-- 用于开启 debug 版本的应用在6.0 系统上 层叠窗口权限 -->
+    <!--<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />-->
+    <!--<uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />-->
+    <!--百度地图-->
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme.NoActionBar"
+        android:name="com.sk.jintang.MyApplication"
+        android:resizeableActivity="true"
+        >
+        <!--<service android:name="cn.jpush.android.service.PushService"-->
+                 <!--android:process=":multiprocess"-->
+                 <!--tools:node="replace" >-->
+        <!--</service>-->
+        <!--<receiver-->
+            <!--android:name="com.sk.jintang.broadcast.JpushReceiver"-->
+            <!--android:enabled="true">-->
+            <!--<intent-filter>-->
+                <!--<action android:name="cn.jpush.android.intent.REGISTRATION" />-->
+                <!--<action android:name="cn.jpush.android.intent.MESSAGE_RECEIVED" />-->
+                <!--<action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED" />-->
+                <!--<action android:name="cn.jpush.android.intent.NOTIFICATION_OPENED" />-->
+                <!--<action android:name="cn.jpush.android.intent.NOTIFICATION_CLICK_ACTION" />-->
+                <!--<action android:name="cn.jpush.android.intent.CONNECTION" />-->
+                <!--<category android:name="${applicationId}" />-->
+            <!--</intent-filter>-->
+        <!--</receiver>-->
+        <activity
+            android:name="com.sk.jintang.module.home.activity.MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustNothing"
+            >
+
+        </activity>
+
+        <activity android:name="com.sk.jintang.module.home.activity.AdverActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <!--<activity android:name=".test2Activity">-->
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
+        <!--</activity>-->
+
+        <!--社区--><!--community-->
+        <activity android:name="com.sk.jintang.module.community.activity.DianPuZhuanRangActivity"/>
+        <activity android:name="com.sk.jintang.module.community.activity.FaTieActivity"  android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.sk.jintang.module.community.activity.MoreHuaTiListActivity"/>
+        <activity android:name="com.sk.jintang.module.community.activity.HuaTiDetailActivity"/>
+        <activity android:name="com.sk.jintang.module.community.activity.JiShiQiuZhiActivity"/>
+        <activity android:name="com.sk.jintang.module.community.activity.QiuGouDianPuActivity"/>
+        <activity android:name="com.sk.jintang.module.community.activity.TieZiDetailActivity"/>
+        <activity android:name="com.sk.jintang.module.community.activity.ZhaoPinDetailActivity"/>
+        <activity android:name="com.sk.jintang.module.community.activity.ZhaoPinListActivity"/>
+        <!--首页--><!--home-->
+        <activity android:name="com.sk.jintang.module.home.activity.GongChangActivity"/>
+        <activity android:name="com.sk.jintang.module.home.activity.GoodsForGongChangActivity"/>
+        <activity android:name="com.sk.jintang.module.home.activity.GoodsForPinPaiActivity"/>
+        <!--<activity android:name="com.sk.jintang.module.home.activity.PinPaiActivity"/>-->
+        <!--我的--><!--my-->
+        <activity android:name="com.sk.jintang.module.my.activity.AccountChongZhiActivity" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.sk.jintang.module.my.activity.AccountListActivity"/>
+        <activity android:name="com.sk.jintang.module.my.activity.AddBankCardActivity" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.sk.jintang.module.my.activity.AgainEvaluateActivity"/>
+        <activity android:name="com.sk.jintang.module.my.activity.FaBiaoEvaluateActivity"/>
+        <activity android:name="com.sk.jintang.module.my.activity.ForgetPWDActivity"  android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.sk.jintang.module.my.activity.LoginActivity" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.sk.jintang.module.my.activity.MessageDetailActivity"/>
+        <activity android:name="com.sk.jintang.module.my.activity.MyBalanceActivity"/>
+        <activity android:name="com.sk.jintang.module.my.activity.SearchStoresResultActivity"/>
+        <activity android:name="com.sk.jintang.module.my.activity.MyDataActivity"/>
+        <activity android:name="com.sk.jintang.module.my.activity.MyEvaluateActivity"/>
+        <activity android:name="com.sk.jintang.module.my.activity.MyFenXiaoActivity"/>
+        <activity android:name="com.sk.jintang.module.my.activity.MyMessageActivity"/>
+        <activity android:name="com.sk.jintang.module.my.activity.MyOrderListActivity"/>
+        <activity android:name="com.sk.jintang.module.my.activity.MySheQuActivity"/>
+        <activity android:name="com.sk.jintang.module.my.activity.MyVouchersActivity"/>
+        <activity android:name="com.sk.jintang.module.my.activity.MyXiaJiActivity"/>
+        <activity android:name="com.sk.jintang.module.my.activity.MyYongJinActivity"/>
+        <activity android:name="com.sk.jintang.module.my.activity.YongJinTiXianActivity"/>
+        <activity android:name="com.sk.jintang.module.my.activity.OrderDetailActivity"/>
+        <activity android:name="com.sk.jintang.module.my.activity.QianDaoActivity"/>
+        <activity android:name="com.sk.jintang.module.my.activity.RegisterActivity" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.sk.jintang.module.my.activity.SetingActivity"/>
+        <activity android:name="com.sk.jintang.module.my.activity.TiXianActivity" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.sk.jintang.module.my.activity.TuiHuoDetailActivity"/>
+        <activity android:name="com.sk.jintang.module.my.activity.TuiHuoListActivity"/>
+        <activity android:name="com.sk.jintang.module.my.activity.TuiKuanActivity"/>
+        <activity android:name="com.sk.jintang.module.my.activity.UpdatePWDActivity"  android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.sk.jintang.module.my.activity.WuLiuActivity"/>
+        <activity android:name="com.sk.jintang.module.my.activity.YangShengDouActivity"/>
+        <activity android:name="com.sk.jintang.module.my.activity.YaoQingActivity"/>
+        <activity android:name="com.sk.jintang.module.my.activity.YiJianFanKuiActivity" android:windowSoftInputMode="adjustResize"/>
+        <!--商品--><!--orderclass-->
+
+        <activity android:name="com.sk.jintang.module.orderclass.activity.GoodsClassActivity"/>
+        <activity android:name="com.sk.jintang.module.orderclass.activity.AddAddressActivity"/>
+        <activity android:name="com.sk.jintang.module.orderclass.activity.AddressListActivity"/>
+        <activity android:name="com.sk.jintang.module.orderclass.activity.FaPiaoInfoActivity"/>
+        <activity android:name="com.sk.jintang.module.orderclass.activity.GetVouchersActivity"/>
+        <activity android:name="com.sk.jintang.module.orderclass.activity.GoodsDetailActivity" android:windowSoftInputMode="adjustNothing"/>
+        <activity android:name="com.sk.jintang.module.orderclass.activity.GoodsDetailXianShiActivity"/>
+        <activity android:name="com.sk.jintang.module.orderclass.activity.GoodsEvaluateActivity"/>
+        <activity android:name="com.sk.jintang.module.orderclass.activity.HourDaoActivity"/>
+        <activity android:name="com.sk.jintang.module.orderclass.activity.JiuJinFaHuoActivity"/>
+        <activity android:name="com.sk.jintang.module.orderclass.activity.NewTuanGouActivity"/>
+        <activity android:name="com.sk.jintang.module.orderclass.activity.SearchGoodsActivity" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.sk.jintang.module.orderclass.activity.SearchGoods2Activity" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.sk.jintang.module.orderclass.activity.SelectCityActivity"/>
+        <activity android:name="com.sk.jintang.module.orderclass.activity.SearchResultActivity" android:windowSoftInputMode="adjustNothing"/>
+        <activity android:name="com.sk.jintang.module.orderclass.activity.ShoppingCartActivity"/>
+        <activity android:name="com.sk.jintang.module.shoppingcart.activity.SureGoodsActivity"/>
+        <activity android:name="com.sk.jintang.module.orderclass.activity.GoodsDetailTuanGouActivity"/>
+        <activity android:name="com.sk.jintang.module.orderclass.activity.GoodsEvaluateTuanGouActivity"/>
+        <activity android:name="com.sk.jintang.module.orderclass.activity.GoodsEvaluateXianShiActivity"/>
+        <activity android:name="com.sk.jintang.module.orderclass.activity.YouHuiQuanActivity"/>
+        <activity android:name="com.sk.jintang.module.orderclass.activity.WeiShangDaiFaActivity"/>
+        <activity android:name="com.sk.jintang.module.orderclass.activity.XianShiQiangActivity"/>
+        <!--商铺-->
+        <activity android:name="com.sk.jintang.module.shoppingcart.activity.ShopActivity"/>
+        <!--商铺宝贝分类-->
+        <activity android:name="com.sk.jintang.module.shoppingcart.activity.ShopGoodsCategoryActivity"/>
+        <!--地图添加地址-->
+        <activity android:name="com.sk.jintang.module.map.MapActivity"/>
+        <!--商铺宝贝分类商品列表-->
+        <activity android:name="com.sk.jintang.module.shoppingcart.activity.ShopGoodsCategoryListActivity"/>
+        <!--商铺，宝贝收藏列表-->
+        <activity android:name="com.sk.jintang.module.my.activity.MyAllCollectActivity"/>
+        <activity android:name="com.sk.jintang.chat.ChatActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.sk.jintang.chat.ConversationActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|stateUnchanged"
+         />
+        <!--商铺简介-->
+        <activity android:name="com.sk.jintang.module.shoppingcart.activity.ShopIntroduceActivity"/>
+        <activity android:name="com.sk.jintang.wxapi.PayResultActivity"/>
+        <!--购物车--><!--shoppingcart-->
+        <activity android:name="com.soundcloud.android.crop.CropImageActivity" />
+
+        <activity android:name="com.sk.jintang.shop.MainShopActivity" />
+        <activity android:name="com.sk.jintang.shop.detail.DetailActivity"  />
+        <activity android:name="com.sk.jintang.shop.ShopListsActivity" />
+
+        <!--微信-->
+        <activity
+            android:name="com.sk.jintang.wxapi.WXEntryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name="com.sk.jintang.wxapi.WXPayEntryActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="wx23ef688729e8e8ba"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.sk.jintang.module.home.activity.NewScanActivity"/>
+
+
+
+        <activity
+            android:name="com.umeng.socialize.media.WBShareCallBackActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:exported="false"
+            android:screenOrientation="portrait" >
+        </activity>
+
+        <activity
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"
+            android:launchMode="singleTask"
+            android:name="com.sina.weibo.sdk.share.WbShareTransActivity">
+            <intent-filter>
+                <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+        </activity>
+        <!--支付宝支付2个-->
+        <activity
+            android:name="com.alipay.sdk.app.H5PayActivity"
+            android:configChanges="orientation|keyboardHidden|navigation|screenSize"
+            android:exported="false"
+            android:screenOrientation="behind"
+            android:windowSoftInputMode="adjustResize|stateHidden" >
+        </activity>
+        <activity
+            android:name="com.alipay.sdk.app.H5AuthActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="false"
+            android:screenOrientation="behind"
+            android:windowSoftInputMode="adjustResize|stateHidden" >
+        </activity>
+        <!--qq-->
+        <activity
+            android:name="com.umeng.qq.tencent.AuthActivity"
+            android:launchMode="singleTask"
+            android:noHistory="true" >
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="tencent1106315352" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.umeng.qq.tencent.AssistActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:configChanges="orientation|keyboardHidden|screenSize"/>
+        <activity android:name="com.sk.jintang.module.community.activity.YangShengXiaoZhiShiActivity"/>
+        <activity android:name="com.sk.jintang.module.community.activity.FaHuaTiActivity" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.sk.jintang.module.community.activity.TieZiSearchActivity"/>
+        <activity android:name="com.sk.jintang.module.my.activity.GuiZeActivity"/>
+        <activity android:name="com.sk.jintang.module.my.activity.AliPayAccountActivity"/>
+        <activity android:name="com.sk.jintang.module.my.activity.AddAliPayAccountActivity"/>
+        <activity android:name="com.sk.jintang.module.my.activity.TiXianSuccessActivity"/>
+        <activity android:name="com.sk.jintang.module.orderclass.activity.ImageDetailActivity"/>
+        <activity android:name="com.sk.jintang.module.orderclass.activity.GoodsQuestionActivity"/>
+        <activity android:name="com.sk.jintang.module.orderclass.activity.QuestionDetailActivity"/>
+        <activity android:name="com.sk.jintang.module.orderclass.activity.AddQuestionActivity"/>
+        <!--qq空间-->
+        <!--友盟-->
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="59f2f637b27b0a595b00005a" >
+        </meta-data>
+        <!--百度地图-->
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="9Y3sQ5I7k1hDW26AfHi5XD6cHx85YEPh"/>
+
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote" >
+            <intent-filter>
+                <action android:name="com.baidu.location.service_v2.2" >
+                </action>
+            </intent-filter>
+        </service>
+
+        <service android:name="com.sk.jintang.service.MyAPPDownloadService"/>
+        <receiver
+            android:name="com.sk.jintang.broadcast.DownloadBro"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="download" />
+            </intent-filter>
+        </receiver>
+
+        <!-- 设置环信应用的appkey -->
+        <meta-data
+            android:name="EASEMOB_APPKEY"
+            android:value="zpxxgd#jintang" />
+        <!-- 声明sdk所需的service -->
+        <service
+            android:name="com.hyphenate.chat.EMChatService"
+            android:exported="true" />
+        <!-- 声明sdk所需的receiver -->
+        <receiver android:name="com.hyphenate.chat.EMMonitorReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+
+                <data android:scheme="package" />
+            </intent-filter>
+            <!-- 可选filter -->
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.USER_PRESENT" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/background_f2"
+    >
+
+    <include layout="@layout/app_title"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/ll_fa_bu_add_img"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@color/white"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:text="标题"
+                        android:textSize="15sp"
+                        />
+
+                    <com.github.customview.MyEditText
+                        android:id="@+id/et_fa_bu_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:hint="请输入标题"
+                        android:textSize="15sp"
+                        android:maxLines="1"
+                        android:imeOptions="actionNext"
+                        android:inputType="text"
+                        />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:layout_marginTop="2px"
+                    >
+                    <TextView
+                        android:id="@+id/tv_fa_bu_tiezi_img"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:hint="请上传封面图片"
+                        android:textSize="15sp"
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="10dp"
+                        />
+                    <ImageView
+                        android:id="@+id/iv_fa_bu_tiezi_img"
+                        android:layout_width="wrap_content"
+                        android:layout_height="218dp"
+                        android:scaleType="fitCenter"
+                        tools:src="@drawable/banner"
+                        android:visibility="gone"
+                        />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2px"
+                    android:background="@color/white"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    >
+
+                   <!-- <com.sendtion.xrichtext.RichTextEditor
+                        android:id="@+id/et_new_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:minHeight="50dp"
+                        android:textColor="@color/gray_66"
+                        android:layout_marginLeft="10dp"
+                        android:textSize="15sp"/>-->
+                    <com.sk.jintang.tools.RichEditor
+                        android:id="@+id/re_new_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        >
+
+                    </com.sk.jintang.tools.RichEditor>
+                </LinearLayout>
+            </LinearLayout>
+        </android.support.v4.widget.NestedScrollView>
+
+        <com.github.customview.MyLinearLayout
+            android:id="@+id/ll_fa_bu_add_img"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_alignParentBottom="true"
+            app:my_ll_top_line="true"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:paddingLeft="10dp"
+            >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="centerCrop"
+                android:src="@drawable/tiezi_img"
+                />
+        </com.github.customview.MyLinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

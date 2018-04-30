@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@color/white"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.2"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        >
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1px"
+            android:layout_weight="1"
+
+            />
+
+        <ImageView
+            android:id="@+id/iv_yaoqing_wx"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/weixin"
+            />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1px"
+            android:layout_weight="1"
+
+            />
+
+        <ImageView
+            android:id="@+id/iv_yaoqing_friend"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/weixin2"
+            />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1px"
+            android:layout_weight="1"
+
+            />
+
+        <ImageView
+            android:id="@+id/iv_yaoqing_qq"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/qq"
+            />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1px"
+            android:layout_weight="1"
+
+            />
+
+        <ImageView
+            android:id="@+id/iv_yaoqing_qzone"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/kongjian"
+            />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1px"
+            android:layout_weight="1"
+
+            />
+
+        <!--<ImageView
+            android:id="@+id/iv_yaoqing_sina"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/sina"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1px"
+            android:layout_weight="1"
+            />-->
+    </LinearLayout>
+    <com.github.customview.MyTextView
+        android:id="@+id/tv_fenxiang_cancle"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="取消"
+        android:gravity="center"
+        app:my_tv_press="@color/c_press"
+        app:my_tv_solid="@color/white"
+        android:textSize="18sp"
+        app:my_tv_top_line="true"
+        />
+</LinearLayout>

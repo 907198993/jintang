@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/shop_category_line"
+    android:orientation="vertical">
+
+    <include layout="@layout/app_title"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:orientation="horizontal"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:background="@color/white"
+        android:layout_marginBottom="10dp"
+        >
+
+        <com.github.customview.MyTextView
+            android:id="@+id/tv_my_fenxiao"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="全部宝贝"
+            android:textSize="15sp"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="15dp"
+            app:my_tv_bottom_line="true"
+            android:textColor="@color/gray_33"
+            />
+
+        <com.github.customview.MyImageView
+            android:layout_centerInParent="true"
+            android:layout_alignParentRight="true"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/arrow_right"
+            app:my_iv_radius="11dp"
+            />
+    </RelativeLayout>
+
+    <LinearLayout
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:background="@color/white"
+         android:orientation="vertical">
+         <android.support.v7.widget.RecyclerView
+             android:id="@+id/recyclerview"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content">
+
+         </android.support.v7.widget.RecyclerView>
+     </LinearLayout>
+
+</LinearLayout>

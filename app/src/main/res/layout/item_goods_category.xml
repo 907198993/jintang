@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@color/white"
+    >
+    <com.github.customview.MyTextView
+        android:id="@+id/tv_goods_category"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:text="洁丽雅"
+        app:my_tv_solid="#e0e0e0"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="13sp"
+        app:my_tv_corner_radius="4dp"
+        />
+</LinearLayout>

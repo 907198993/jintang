@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@color/white"
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="400dp">
+        <android.support.v7.widget.RecyclerView
+            android:layout_above="@+id/tv_province_cancle"
+            android:id="@+id/rv_province"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </android.support.v7.widget.RecyclerView>
+        <com.github.customview.MyTextView
+            android:id="@+id/tv_province_cancle"
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:text="取消"
+            android:textColor="@color/green"
+            android:textSize="16sp"
+            android:gravity="center"
+            app:my_tv_top_line="true"
+            app:my_tv_press="@color/c_press"
+            />
+    </RelativeLayout>
+
+</LinearLayout>
