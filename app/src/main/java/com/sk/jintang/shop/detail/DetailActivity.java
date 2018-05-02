@@ -24,12 +24,15 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.github.androidtools.PhoneUtils;
+import com.github.androidtools.SPUtils;
 import com.github.androidtools.inter.MyOnClickListener;
 import com.github.customview.FlowLayout;
 import com.github.customview.MyTextView;
 import com.github.florent37.viewanimator.AnimationListener;
 import com.github.florent37.viewanimator.ViewAnimator;
+import com.sk.jintang.Config;
 import com.sk.jintang.R;
+import com.sk.jintang.module.my.activity.LoginActivity;
 import com.sk.jintang.module.orderclass.network.request.ShoppingCartItem;
 import com.sk.jintang.module.orderclass.network.response.GuiGeObj;
 import com.sk.jintang.module.shoppingcart.activity.SureGoodsActivity;
@@ -345,7 +348,11 @@ public class DetailActivity extends BaseActivity implements AddWidget.OnAddClick
 				Intent intent;
 				if (carAdapter.getData().size() == 0) {
 					return;
-				} else {
+				} else { //去登陆
+					if (SPUtils.getPrefString(mContext, Config.user_id,"0").equals("0")) {
+						STActivity(LoginActivity.class);
+						return;
+					}
 					ShoppingCartItem item = new ShoppingCartItem();
 					List<ShopDataObj.GoodsListBean> flist = carAdapter.getData();
 					List<ShoppingCartItem.BodyBean> body = new ArrayList<>();

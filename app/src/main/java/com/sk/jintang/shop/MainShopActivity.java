@@ -227,6 +227,10 @@ public class MainShopActivity extends BaseActivity implements AddWidget.OnAddCli
             if(carAdapter.getData().size()==0){
              return;
             }else{
+                if (SPUtils.getPrefString(mContext, Config.user_id,"0").equals("0")) {
+                    STActivity(LoginActivity.class);
+                    return;
+                }
                 ShoppingCartItem  item = new ShoppingCartItem();
                 List<ShopDataObj.GoodsListBean> flist = carAdapter.getData();
                 List<ShoppingCartItem.BodyBean> body = new ArrayList<>();

@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="E:\yy_android1\yy_android\easeui\src\main\assets"/><source path="E:\yy_android1\yy_android\easeui\build\generated\assets\shaders\debug"/></dataSet><dataSet config="debug"><source path="E:\yy_android1\yy_android\easeui\src\debug\assets"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="E:\jintang\easeui\src\main\assets"/><source path="E:\jintang\easeui\build\generated\assets\shaders\debug"/></dataSet><dataSet config="debug"><source path="E:\jintang\easeui\src\debug\assets"/></dataSet></merger>
