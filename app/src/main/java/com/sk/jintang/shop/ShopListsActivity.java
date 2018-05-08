@@ -59,10 +59,10 @@ public class ShopListsActivity extends BaseActivity implements LoadMoreAdapter.O
                 Glide.with(mContext).load(bean.getStoreImg()).error(R.color.c_press).into(iv_my_evaluate_img);
                 holder.setText(R.id.tv_store_name,bean.getStoreName());
                if(bean.getIsFreePs()==0){
-                   holder.setText(R.id.tv_price_fee,"起送价"+bean.getStartPs()+"|"+"配送费还没");
+                   holder.setText(R.id.tv_price_fee,"起送价￥"+bean.getStartPs()+"|"+"配送免费");
                }else{
                    holder.setText(R.id.tv_store_name,bean.getStoreName())
-                           .setText(R.id.tv_price_fee,"起送价"+bean.getStartPs()+"|"+"配送免费");
+                           .setText(R.id.tv_price_fee,"起送价￥"+bean.getStartPs()+"|"+"配送费￥"+bean.getIsFreePs());
                }
                 holder.itemView.setOnClickListener(new MyOnClickListener() {
                     @Override

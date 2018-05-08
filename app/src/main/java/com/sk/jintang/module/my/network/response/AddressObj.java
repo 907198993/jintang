@@ -27,6 +27,9 @@ public class AddressObj implements Serializable{
     private String province;
     private String city;
     private String zone;
+    private String LDH;
+    private String coord;
+
 
     public int getId() {
         return id;
@@ -98,5 +101,21 @@ public class AddressObj implements Serializable{
 
     public void setIs_default(int is_default) {
         this.is_default = is_default;
+    }
+
+    public String getLDH() {
+        return LDH;
+    }
+
+    public void setLDH(String LDH) {
+        this.LDH = LDH;
+    }
+
+    public String getCoord() {
+        return coord;
+    }
+
+    public void setCoord(String coord) {
+        this.coord = coord;
     }
 }

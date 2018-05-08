@@ -6,11 +6,13 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.design.widget.BottomSheetDialog;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.content.FileProvider;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
@@ -377,8 +379,16 @@ public class AgainEvaluateActivity extends BaseActivity {
                 String fileName = getPhotoFileName() + ".jpg";
                 Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                 imgSaveName = path + fileName;
-                photoUri = Uri.fromFile(new File(imgSaveName));
-                intent.putExtra(MediaStore.EXTRA_OUTPUT, photoUri);
+//                photoUri = Uri.fromFile(new File(imgSaveName));
+//                intent.putExtra(MediaStore.EXTRA_OUTPUT, photoUri);
+                int currentapiVersion = Build.VERSION.SDK_INT;
+                if (currentapiVersion < 24){
+                    intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(new File(imgSaveName)));
+                }else{  //解决Android 7.0 相机问题
+                    intent.putExtra(MediaStore.EXTRA_OUTPUT, FileProvider.getUriForFile(getApplicationContext(),
+                            getApplicationContext().getPackageName()+ ".provider", new File(imgSaveName)));
+                }
+
                 startActivityForResult(intent, 2000);
             }
         }

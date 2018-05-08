@@ -144,7 +144,7 @@
                     android:orientation="horizontal"
                     android:gravity="center_vertical"
                     android:background="@color/white"
-                    android:visibility="visible"
+                    android:visibility="gone"
                     >
                     <LinearLayout
                         android:id="@+id/ll_home_qiandao"
@@ -460,12 +460,14 @@
                     android:orientation="horizontal"
                     android:gravity="center_vertical"
                     android:layout_marginTop="5dp"
+                    android:visibility="gone"
                     android:background="@color/white"
                     >
                     <LinearLayout
                         android:id="@+id/ll_home_xsd"
                         android:layout_width="0dp"
                         android:layout_weight="1"
+
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
                         android:gravity="center"
@@ -572,7 +574,7 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="16dp"
-                        android:src="@drawable/home16"
+                        android:src="@drawable/biao"
                         />
                     <View
                         android:layout_width="2px"
@@ -807,6 +809,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="42dp"
                     android:orientation="horizontal"
+                    android:visibility="gone"
                     android:gravity="center"
                     >
                     <ImageView
@@ -843,6 +846,7 @@
                 </LinearLayout>
                  <android.support.v7.widget.RecyclerView
                      android:id="@+id/rv_home_gczd"
+                     android:visibility="gone"
                      android:layout_width="match_parent"
                      android:layout_height="match_parent"
                      >

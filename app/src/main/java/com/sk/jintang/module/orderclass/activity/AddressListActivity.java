@@ -92,7 +92,7 @@ public class AddressListActivity extends BaseActivity implements LoadMoreAdapter
 
                 TextView tv_address_edit=  holder.getTextView(R.id.tv_address_edit);
                 TextView tv_address_delete=  holder.getTextView(R.id.tv_address_delete);
-                tv_address_edit.setOnClickListener(new MyOnClickListener() {
+                tv_address_edit.setOnClickListener(new MyOnClickListener() {//编辑
                     @Override
                     protected void onNoDoubleClick(View view) {
                         Intent intent=new Intent();

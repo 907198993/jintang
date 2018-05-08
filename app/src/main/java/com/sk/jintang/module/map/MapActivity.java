@@ -246,7 +246,7 @@ public class MapActivity  extends Activity implements BaiduMap.OnMapStatusChange
     public void onMapStatusChangeFinish(MapStatus mapStatus) {
         // 获取地图最后状态改变的中心点
         LatLng cenpt = mapStatus.target;
-        Toast.makeText(getApplicationContext(), "最后停止点:" + cenpt.latitude+","+cenpt.longitude, Toast.LENGTH_LONG).show();
+//        Toast.makeText(getApplicationContext(), "最后停止点:" + cenpt.latitude+","+cenpt.longitude, Toast.LENGTH_LONG).show();
         //判断定位点是否在可配送范围内---如果需要设置配送的范围则加上此段代码
 //        if (!SpatialRelationUtil.isPolygonContainsPoint(mPoints, cenpt)){
 //            Toast.makeText(getApplicationContext(),"该地址不在配送范围，请在黄色区域内选择",Toast.LENGTH_SHORT).show();
@@ -279,11 +279,10 @@ public class MapActivity  extends Activity implements BaiduMap.OnMapStatusChange
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                     String name = poiInfos.get(position).name.toString();
-                    Toast.makeText(getApplicationContext(),name+"---->获取数据返回到添加地址页面"+poiInfos.get(position).location.latitude+"==="+poiInfos.get(position).location.longitude, Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent();
                     intent.putExtra("address", name);
-                    intent.putExtra("latitude", poiInfos.get(position).location.latitude);
-                    intent.putExtra("longitude", poiInfos.get(position).location.longitude);
+                    intent.putExtra("latitude", Double.toString(poiInfos.get(position).location.latitude));
+                    intent.putExtra("longitude", Double.toString(poiInfos.get(position).location.longitude));
                     setResult(RESULT_OK,intent);
                     finish();
                 }
@@ -376,7 +375,7 @@ public class MapActivity  extends Activity implements BaiduMap.OnMapStatusChange
 //                    LatLng pt1 = SpatialRelationUtil.getNearestPointFromLine(mPoints, latLng);
 //                    geoCoder.reverseGeoCode(new ReverseGeoCodeOption().location(pt1));
 //                }
-                Toast.makeText(getApplicationContext(),name+"---->获取数据返回到添加地址页面", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getApplicationContext(),name+"---->获取数据返回到添加地址页面", Toast.LENGTH_SHORT).show();
             }
         });
     }

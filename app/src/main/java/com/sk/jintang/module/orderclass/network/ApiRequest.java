@@ -55,6 +55,15 @@ public class ApiRequest extends BaseApiRequest {
         getGeneralClient(IRequest.class).getShopDetail(map).enqueue(callBack);
     }
 
+    //获取品牌商铺id
+    public static void GetBrandStore(Map map, MyCallBack callBack) {
+        if (notNetWork(callBack.getContext())) {
+            callBack.onFailure(null, new NoNetworkException(Config.noNetWork));
+            return;
+        }
+        getGeneralClient(IRequest.class).GetBrandStore(map).enqueue(callBack);
+    }
+
     //获取特殊通道商铺
     public static void getSpecialShopDetail(Map map, MyCallBack callBack) {
         if (notNetWork(callBack.getContext())) {

@@ -13,6 +13,7 @@ import com.bumptech.glide.Glide;
 import com.github.androidtools.ToastUtils;
 import com.github.customview.MyImageView;
 import com.github.customview.MyTextView;
+import com.sk.jintang.GetSign;
 import com.sk.jintang.module.shoppingcart.adapter.MyViewPagerAdapter;
 import com.sk.jintang.R;
 import com.sk.jintang.base.BaseActivity;
@@ -23,6 +24,7 @@ import com.sk.jintang.module.orderclass.network.response.StatusObj;
 import com.sk.jintang.module.shoppingcart.fragment.ShopTab1Fragment;
 import com.sk.jintang.module.shoppingcart.fragment.ShopTab2Fragment;
 import com.sk.jintang.module.shoppingcart.fragment.ShopTab3Fragment;
+import com.sk.jintang.module.shoppingcart.network.response.StoreObj;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -59,6 +61,7 @@ public class ShopActivity extends BaseActivity {
     TabLayout tab_layout;
     private String attention;//是否关注
     private  String storeId;
+    private  String pinPaiId;
       Fragment ShopTab1Fragment,ShopTab2Fragment,ShopTab3Fragment;
     @Override
     protected int getContentView() {
@@ -74,8 +77,26 @@ public class ShopActivity extends BaseActivity {
     protected void initData() {
         showProgress();
         storeId = getIntent().getStringExtra(com.sk.jintang.module.my.Constant.IParam.storeId);
-        getData(storeId);
+        pinPaiId =  getIntent().getStringExtra(com.sk.jintang.module.home.Constant.IParam.pinPaiId);
+        if(pinPaiId!=null){
+          getStoreId(pinPaiId);
+        }else {
+            getData(storeId);
+        }
         initUiAndData();
+    }
+
+    private void getStoreId(String brand_id) {
+        Map<String, String> map = new HashMap<String, String>();
+        map.put("sign",  GetSign.getSign(map));
+        map.put("brand_id", brand_id);
+        ApiRequest.GetBrandStore(map, new MyCallBack<StoreObj>(mContext, pcfl, pl_load) {
+            @Override
+            public void onSuccess(StoreObj obj) {
+                getData(obj.getStoreID());
+            }
+        });
+
     }
 
 

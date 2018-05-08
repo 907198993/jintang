@@ -201,7 +201,7 @@
                         />
 
                     <com.github.customview.MyEditText
-                        android:id="@+id/et_editaddress_"
+                        android:id="@+id/et_editaddress_door"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center_vertical"

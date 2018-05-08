@@ -103,7 +103,7 @@ public class MainActivity extends BaseActivity {
         getRxBusEvent(MoreCategoryEvent.class, new MySubscriber<MoreCategoryEvent>() {
             @Override
             public void onMyNext(MoreCategoryEvent event) {
-                Toast.makeText(MainActivity.this,"ConversationActivity",Toast.LENGTH_SHORT).show();
+//                Toast.makeText(MainActivity.this,"ConversationActivity",Toast.LENGTH_SHORT).show();
                 selectGoods();
                 RxBus.getInstance().postSticky(new SelectGoodsCategoryEvent(event.typeId,event.typeName));
                 selectButton.setChecked(true);
@@ -244,7 +244,7 @@ public class MainActivity extends BaseActivity {
                             AppInfo info = new AppInfo();
                             info.setUrl(obj.getAndroid_vs_url());
                             info.setHouZhui(".apk");
-                            info.setFileName("yangyu");
+                            info.setFileName("jintang");
                             info.setId(obj.getAndroid_version() + "");
                             downloadApp(info);
                         }
@@ -284,12 +284,8 @@ public class MainActivity extends BaseActivity {
                 if(TextUtils.isEmpty(obj.getImage_url())){
                     SPUtils.removeKey(mContext,Config.imgPath);
                 }else{
-                    new Thread(new Runnable() {
-                        @Override
-                        public void run() {
-                            saveImg(obj.getImage_url());
-                        }
-                    }).start();
+                    SPUtils.setPrefString(mContext,Config.imgPath,obj.getImage_url());
+//                    saveImg(obj.getImage_url());
                 }
             }
             @Override
@@ -297,20 +293,20 @@ public class MainActivity extends BaseActivity {
             }
         });
     }
-    public void saveImg(String url){
-        FutureTarget<File> future = Glide.with(mContext)
-                .load(url)
-                .downloadOnly(PhoneUtils.getScreenWidth(this),PhoneUtils.getScreenHeight(this));
-        try {
-            File cacheFile = future.get();
-            String path = cacheFile.getAbsolutePath();
-            SPUtils.setPrefString(mContext,Config.imgPath,path);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        }
-    }
+//    public void saveImg(String url){
+//        FutureTarget<File> future = Glide.with(mContext)
+//                .load(url)
+//                .downloadOnly(PhoneUtils.getScreenWidth(this),PhoneUtils.getScreenHeight(this));
+//        try {
+//            File cacheFile = future.get();
+//            String path = cacheFile.getAbsolutePath();
+//
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        } catch (ExecutionException e) {
+//            e.printStackTrace();
+//        }
+//    }
     private void getZhiFuNotifyUrl(String type) {
         Map<String,String> map=new HashMap<String,String>();
         map.put("payment_type",type);

@@ -7,7 +7,7 @@ android {
         applicationId "com.sk.jintang"
         minSdkVersion 18
         targetSdkVersion 26
-        versionCode 11
+        versionCode 9
         versionName "1.1.1"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 

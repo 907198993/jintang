@@ -43,15 +43,19 @@ public class AddAddressActivity extends BaseActivity {
     MyEditText et_editaddress_name;
     @BindView(R.id.et_editaddress_phone)
     MyEditText et_editaddress_phone;
+    @BindView(R.id.et_editaddress_door)
+    MyEditText et_editaddress_door;  //门牌号
     @BindView(R.id.tv_editaddress_area)
     TextView tv_editaddress_area;
     @BindView(R.id.et_editaddress_detail)
     TextView et_editaddress_detail;
     @BindView(R.id.sb_address_default)
     SwitchButton sb_address_default;
+
     private boolean isEdit;
     private AddressObj addressObj;
-
+    String longitude;//经度
+    String latitude;//纬度
 
     private OptionsPopupWindow pwOptions;
     private ArrayList<String> options1Items;
@@ -90,7 +94,11 @@ public class AddAddressActivity extends BaseActivity {
         et_editaddress_phone.setText(addressObj.getPhone());
         tv_editaddress_area.setText(addressObj.getShipping_address());
         et_editaddress_detail.setText(addressObj.getShipping_address_details());
+        et_editaddress_door.setText(addressObj.getLDH());
         sb_address_default.setChecked(addressObj.getIs_default()==1?true:false);
+        String [] strings = addressObj.getCoord().split(",");
+        longitude = strings[0];
+        latitude = strings[1];
     }
 
     @Override
@@ -113,6 +121,8 @@ public class AddAddressActivity extends BaseActivity {
                 String phone = getSStr(et_editaddress_phone);
                 String area = getSStr(tv_editaddress_area);
                 String detail = getSStr(et_editaddress_detail);
+                String door = getSStr(et_editaddress_door);
+
                 if(TextUtils.isEmpty(name)){
                     showMsg("收货人不能为空");
                     return;
@@ -128,17 +138,20 @@ public class AddAddressActivity extends BaseActivity {
                 }else if(TextUtils.isEmpty(detail)){
                     showMsg("详细地址不能为空");
                     return;
+                }else if(TextUtils.isEmpty(door)){
+                    showMsg("门牌号");
+                    return;
                 }
                 if(isEdit){
-                    editAddress(name,phone,area,detail);
+                    editAddress(name,phone,area,detail,door);
                 }else{
-                    addAddress(name,phone,area,detail);
+                    addAddress(name,phone,area,detail,door);
                 }
                 break;
         }
     }
 
-    private void addAddress(String name, String phone, String area, String detail) {
+    private void addAddress(String name, String phone, String area, String detail,String door) {
         showLoading();
         Map<String,String> map=new HashMap<String,String>();
         map.put("user_id",getUserId());
@@ -149,6 +162,8 @@ public class AddAddressActivity extends BaseActivity {
         map.put("city",selectCityName);
         map.put("zone",selectZoneName);
         map.put("shipping_address_detail",detail);
+        map.put("LDH",door);
+        map.put("coord",longitude+","+latitude);
         map.put("is_default",sb_address_default.isChecked()?"1":"0");
         map.put("sign", GetSign.getSign(map));
         ApiRequest.addAddress(map, new MyCallBack<BaseObj>(mContext) {
@@ -167,7 +182,7 @@ public class AddAddressActivity extends BaseActivity {
         });
     }
 
-    private void editAddress(String name, String phone, String area, String detail) {
+    private void editAddress(String name, String phone, String area, String detail,String door) {
         showLoading();
         Map<String,String>map=new HashMap<String,String>();
         map.put("address_id",addressObj.getId()+"");
@@ -178,6 +193,8 @@ public class AddAddressActivity extends BaseActivity {
         map.put("city",selectCityName);
         map.put("zone",selectZoneName);
         map.put("shipping_address_detail",detail);
+        map.put("LDH",door);
+        map.put("coord",longitude+","+latitude);
         map.put("is_default",sb_address_default.isChecked()?"1":"0");
         map.put("sign", GetSign.getSign(map));
         ApiRequest.editAddress(map, new MyCallBack<BaseObj>(mContext) {
@@ -272,6 +289,8 @@ public class AddAddressActivity extends BaseActivity {
                 case 103:
                     String result_value = data.getStringExtra("address");
                     et_editaddress_detail.setText(result_value);
+                    longitude = data.getStringExtra("longitude");
+                    latitude =  data.getStringExtra("latitude");
                     break;
             }
         }

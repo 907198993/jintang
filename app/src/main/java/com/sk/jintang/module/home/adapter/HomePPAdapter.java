@@ -22,6 +22,7 @@ import com.sk.jintang.module.home.activity.GoodsForPinPaiActivity;
 import com.sk.jintang.module.home.activity.PinPaiActivity;
 import com.sk.jintang.module.home.network.response.HomeButtomObj;
 import com.sk.jintang.module.my.activity.LoginActivity;
+import com.sk.jintang.module.shoppingcart.activity.ShopActivity;
 
 /**
  * Created by administartor on 2017/9/12.
@@ -65,7 +66,7 @@ public class HomePPAdapter extends BaseRecyclerAdapter<HomeButtomObj.BrandListBe
                     }
                     Intent intent=new Intent();
                     intent.putExtra(Constant.IParam.pinPaiId,bean.getBrand_id()+"");
-                    ActUtils.STActivity((Activity) mContext,intent, GoodsForPinPaiActivity.class);
+                    ActUtils.STActivity((Activity) mContext,intent, ShopActivity.class);
                 }
             });
         }

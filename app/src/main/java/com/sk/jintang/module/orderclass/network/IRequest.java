@@ -28,6 +28,7 @@ import com.sk.jintang.module.orderclass.network.response.TuanGouObj;
 import com.sk.jintang.module.orderclass.network.response.XianShiQiangGouObj;
 import com.sk.jintang.module.orderclass.network.response.XianShiTimeObj;
 import com.sk.jintang.module.orderclass.network.response.YouHuiQuanObj;
+import com.sk.jintang.module.shoppingcart.network.response.StoreObj;
 import com.sk.jintang.module.shoppingcart.network.response.StoreOrderItem;
 import com.sk.jintang.module.shoppingcart.network.response.SureOrderObj;
 
@@ -60,6 +61,10 @@ public interface IRequest {
     //获取商铺
     @GET("api/Store/GetStoreHome")
     Call<ResponseObj<ShopDetailObj>> getShopDetail(@QueryMap Map<String, String> map);
+
+    //获取品牌商铺id
+    @GET("api/HomePage/GetBrandStore")
+    Call<ResponseObj<StoreObj>> GetBrandStore(@QueryMap Map<String, String> map);
 
     //获取特殊通道商铺
     @GET("api/Store/GetSpecialStoreHome")

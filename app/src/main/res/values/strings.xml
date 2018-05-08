@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">爱尚</string>
+    <string name="app_name">水城生活go</string>
     <string name="scroll_behavior">@string/appbar_scrolling_view_behavior</string>
     <string name="detail_header_behavior">com.sk.jintang.shop.detail.DetailHeaderBehavior</string>
 </resources>

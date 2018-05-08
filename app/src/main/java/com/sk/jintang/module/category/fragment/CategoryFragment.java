@@ -52,7 +52,6 @@ public class CategoryFragment extends BaseFragment implements CategoryAdapter.On
 
         appTitle.setText("商品分类");
         categoryAdapter=new CategoryAdapter(mContext,0);
-
         recyclerviewCategory.setAdapter(categoryAdapter);
         recyclerviewCategory.setNestedScrollingEnabled(false);
         categoryAdapter.setOnItemClickListener(this);

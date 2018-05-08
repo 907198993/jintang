@@ -23,6 +23,7 @@ import com.sk.jintang.module.home.Constant;
 import com.sk.jintang.module.home.network.ApiRequest;
 import com.sk.jintang.module.home.network.response.BrandObj;
 import com.sk.jintang.module.my.activity.LoginActivity;
+import com.sk.jintang.module.shoppingcart.activity.ShopActivity;
 import com.sk.jintang.tools.DividerGridItemDecoration;
 
 import java.util.HashMap;
@@ -66,7 +67,7 @@ public class PinPaiActivity extends BaseActivity {
                         }
                         Intent intent=new Intent();
                         intent.putExtra(Constant.IParam.pinPaiId,bean.getBrand_id()+"");
-                        ActUtils.STActivity((Activity) mContext,intent, GoodsForPinPaiActivity.class);
+                        ActUtils.STActivity((Activity) mContext,intent, ShopActivity.class);
                     }
                 });
             }

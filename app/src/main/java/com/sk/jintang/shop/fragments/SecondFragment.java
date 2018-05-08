@@ -2,6 +2,8 @@ package com.sk.jintang.shop.fragments;
 
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -17,6 +19,7 @@ import com.sk.jintang.GetSign;
 import com.sk.jintang.R;
 import com.sk.jintang.base.BaseFragment;
 import com.sk.jintang.base.MyCallBack;
+import com.sk.jintang.module.home.activity.MainActivity;
 import com.sk.jintang.module.shoppingcart.network.ApiRequest;
 import com.sk.jintang.module.shoppingcart.network.response.ShopIntroduceObj;
 import com.sk.jintang.shop.MainShopActivity;
@@ -32,6 +35,7 @@ import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import butterknife.Unbinder;
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -101,8 +105,17 @@ public class SecondFragment extends BaseFragment {
 		getData();
 	}
 
-	@Override
+	@OnClick({R.id.iv_goods_detail_phone})
 	protected void onViewClick(View v) {
-
+          switch (v.getId()){
+			  case R.id.iv_goods_detail_phone :
+			  String telStr=shopPhone.getText().toString();
+			  Uri uri=Uri.parse("tel:"+telStr);
+			  Intent it=new Intent();
+			  it.setAction(Intent.ACTION_CALL);
+			  it.setData(uri);
+			  SecondFragment.this.startActivity(it);
+			  	break;
+		  }
 	}
 }

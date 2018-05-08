@@ -56,7 +56,7 @@ public class AdverActivity extends BaseActivity {
     @Override
     protected void initView() {
         if(!TextUtils.isEmpty(imgPath)){
-            Glide.with(this).load(imgPath).error(R.drawable.spalsh).into(iv_spalsh);
+            Glide.with(this).load(imgPath).error(R.drawable.splash).into(iv_spalsh);
         }
     }
 

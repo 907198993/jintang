@@ -108,7 +108,7 @@
             android:textSize="16sp"
             tools:text="19312321123" />
         <com.github.customview.MyImageView
-            android:id="@+id/iv_goods_detail_kefu"
+            android:id="@+id/iv_goods_detail_phone"
             android:layout_alignParentRight="true"
             android:layout_width="28dp"
             android:layout_height="28dp"
@@ -149,6 +149,7 @@
             android:textSize="16sp"
             tools:text="xxxxx水果店" />
         <com.github.customview.MyImageView
+            android:id="@+id/iv_goods_detail_kefu"
             android:layout_alignParentRight="true"
             android:layout_width="28dp"
             android:layout_height="28dp"

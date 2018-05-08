@@ -150,7 +150,7 @@ public class GoodsDetailActivity extends BaseActivity {
     private BottomSheetDialog goodsParamsDialog;
     private String intentAction;
     private String HxUserId;
-    private boolean isHourDao;
+    private boolean isHourDao =true;
     private int storeId;
 
     @Override
@@ -192,7 +192,7 @@ public class GoodsDetailActivity extends BaseActivity {
 
         intentAction = getIntent().getAction();
         goodsId = getIntent().getStringExtra(Constant.IParam.goodsId);
-        isHourDao = getIntent().getBooleanExtra(Constant.IParam.hourDao,false);
+//        isHourDao = getIntent().getBooleanExtra(Constant.IParam.hourDao,false);
 
         if(!isHourDao){
 //            tv_goods_detail_shoppingcart.setVisibility(View.GONE);
@@ -625,13 +625,12 @@ public class GoodsDetailActivity extends BaseActivity {
 //                showMsg(obj.getMsg());
                 isCollect = !isCollect;
                 if (isCollect) {
-                    iv_goods_detail_collect.setImageResource(R.drawable.order3_select);
+                    iv_goods_detail_collect.setImageResource(R.mipmap.collected);
                 } else {
-                    iv_goods_detail_collect.setImageResource(R.drawable.order3);
+                    iv_goods_detail_collect.setImageResource(R.mipmap.collect);
                 }
             }
         });
-
     }
 
     //0加入购物车，1立即购买,-1查看商品规格，不显示确认按钮
