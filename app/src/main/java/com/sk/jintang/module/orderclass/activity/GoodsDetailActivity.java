@@ -91,9 +91,6 @@ public class GoodsDetailActivity extends BaseActivity {
     @BindView(R.id.ll_goods_detail_pj)
     LinearLayout ll_goods_detail_pj;
 
-    @BindView(R.id.linear_shop)
-    LinearLayout linearShop;
-
     @BindView(R.id.ll_goods_detail_xiangqing)
     LinearLayout ll_goods_detail_xiangqing;
     @BindView(R.id.ll_goods_detail_tuijian)
@@ -437,7 +434,7 @@ public class GoodsDetailActivity extends BaseActivity {
 //        getShoppingCartNum();
     }
 
-    @OnClick({R.id.ll_goods_detail_question,R.id.fl_goods_detail_shopping_cart,R.id.ll_goods_detail_params,R.id.tv_goods_detail_lookevaluate,R.id.ll_goods_detail_guige, R.id.iv_goods_detail_back, R.id.iv_goods_detail_share, R.id.ll_goods_detail_kefu, R.id.ll_goods_detail_collect, R.id.tv_goods_detail_shoppingcart, R.id.tv_goods_detail_buy,R.id.linear_shop})
+    @OnClick({R.id.ll_goods_detail_question,R.id.fl_goods_detail_shopping_car,R.id.ll_goods_detail_params,R.id.tv_goods_detail_lookevaluate,R.id.ll_goods_detail_guige, R.id.iv_goods_detail_back, R.id.iv_goods_detail_share, R.id.ll_goods_detail_kefu, R.id.ll_goods_detail_collect, R.id.tv_goods_detail_shoppingcart, R.id.tv_goods_detail_buy,R.id.linear_shop})
     public void onViewClick(View view) {
         Intent intent;
         switch (view.getId()) {
@@ -453,7 +450,7 @@ public class GoodsDetailActivity extends BaseActivity {
                 intent.putExtra(Constant.IParam.hourDao,isHourDao);
                 STActivityForResult(intent,GoodsEvaluateActivity.class,100);
                 break;
-            case R.id.fl_goods_detail_shopping_cart:
+            case R.id.fl_goods_detail_shopping_car:
                 if (TextUtils.isEmpty(SPUtils.getPrefString(mContext, Config.user_id, null))) {
                     STActivity(LoginActivity.class);
                     return;
