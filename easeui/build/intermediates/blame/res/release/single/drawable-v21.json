@@ -1,34 +1,18 @@
 [
     {
-        "merged": "E:\\yy_android1\\yy_android\\easeui\\build\\intermediates\\res\\merged\\release\\drawable-v21\\abc_btn_colored_material.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\05e32f26db838eb9f119587ad9a0aed65fbbe25d\\output\\res\\drawable-v21\\abc_btn_colored_material.xml"
+        "merged": "D:\\jintang\\easeui\\build\\intermediates\\res\\merged\\release\\drawable-v21\\abc_btn_colored_material.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\4cc20bb3c74db5c67dd5f2e5c6916f1241f06196\\output\\res\\drawable-v21\\abc_btn_colored_material.xml"
     },
     {
-        "merged": "E:\\jintang\\easeui\\build\\intermediates\\res\\merged\\release\\drawable-v21\\abc_edit_text_material.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\05e32f26db838eb9f119587ad9a0aed65fbbe25d\\output\\res\\drawable-v21\\abc_edit_text_material.xml"
+        "merged": "D:\\jintang\\easeui\\build\\intermediates\\res\\merged\\release\\drawable-v21\\abc_action_bar_item_background_material.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\4cc20bb3c74db5c67dd5f2e5c6916f1241f06196\\output\\res\\drawable-v21\\abc_action_bar_item_background_material.xml"
     },
     {
-        "merged": "E:\\jintang\\easeui\\build\\intermediates\\res\\merged\\release\\drawable-v21\\notification_action_background.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\cc9d513b064c98b54ec11e99929fa5ae88ccaa76\\output\\res\\drawable-v21\\notification_action_background.xml"
+        "merged": "D:\\jintang\\easeui\\build\\intermediates\\res\\merged\\release\\drawable-v21\\notification_action_background.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\38c699e16c5d309fc2a36b121f014135984e4d20\\output\\res\\drawable-v21\\notification_action_background.xml"
     },
     {
-        "merged": "E:\\jintang\\easeui\\build\\intermediates\\res\\merged\\release\\drawable-v21\\abc_btn_colored_material.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\05e32f26db838eb9f119587ad9a0aed65fbbe25d\\output\\res\\drawable-v21\\abc_btn_colored_material.xml"
-    },
-    {
-        "merged": "E:\\yy_android1\\yy_android\\easeui\\build\\intermediates\\res\\merged\\release\\drawable-v21\\abc_edit_text_material.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\05e32f26db838eb9f119587ad9a0aed65fbbe25d\\output\\res\\drawable-v21\\abc_edit_text_material.xml"
-    },
-    {
-        "merged": "E:\\yy_android1\\yy_android\\easeui\\build\\intermediates\\res\\merged\\release\\drawable-v21\\abc_action_bar_item_background_material.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\05e32f26db838eb9f119587ad9a0aed65fbbe25d\\output\\res\\drawable-v21\\abc_action_bar_item_background_material.xml"
-    },
-    {
-        "merged": "E:\\yy_android1\\yy_android\\easeui\\build\\intermediates\\res\\merged\\release\\drawable-v21\\notification_action_background.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\cc9d513b064c98b54ec11e99929fa5ae88ccaa76\\output\\res\\drawable-v21\\notification_action_background.xml"
-    },
-    {
-        "merged": "E:\\jintang\\easeui\\build\\intermediates\\res\\merged\\release\\drawable-v21\\abc_action_bar_item_background_material.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\05e32f26db838eb9f119587ad9a0aed65fbbe25d\\output\\res\\drawable-v21\\abc_action_bar_item_background_material.xml"
+        "merged": "D:\\jintang\\easeui\\build\\intermediates\\res\\merged\\release\\drawable-v21\\abc_edit_text_material.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\4cc20bb3c74db5c67dd5f2e5c6916f1241f06196\\output\\res\\drawable-v21\\abc_edit_text_material.xml"
     }
 ]

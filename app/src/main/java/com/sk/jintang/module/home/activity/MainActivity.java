@@ -154,7 +154,7 @@ public class MainActivity extends BaseActivity {
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
         layoutParams.height = statusBarHeight;
         status_bar.setLayoutParams(layoutParams);
-        status_bar.setBackgroundColor(getResources().getColor(R.color.green));
+        status_bar.setBackgroundColor(getResources().getColor(R.color.home_orange));//状态栏颜色
 
         selectButton = rb_home_shouye;
         homeFragment = new HomeFragment();

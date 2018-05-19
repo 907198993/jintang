@@ -1,10 +1,6 @@
 [
     {
-        "merged": "E:\\yy_android1\\yy_android\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout-v16\\notification_template_custom_big.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\cc9d513b064c98b54ec11e99929fa5ae88ccaa76\\output\\res\\layout-v16\\notification_template_custom_big.xml"
-    },
-    {
-        "merged": "E:\\jintang\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout-v16\\notification_template_custom_big.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\cc9d513b064c98b54ec11e99929fa5ae88ccaa76\\output\\res\\layout-v16\\notification_template_custom_big.xml"
+        "merged": "D:\\jintang\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout-v16\\notification_template_custom_big.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\38c699e16c5d309fc2a36b121f014135984e4d20\\output\\res\\layout-v16\\notification_template_custom_big.xml"
     }
 ]

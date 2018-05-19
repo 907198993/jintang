@@ -47,7 +47,7 @@
             android:id="@+id/tv_my_message_point"
             android:layout_width="4dp"
             android:layout_height="4dp"
-            app:my_tv_solid="@color/home_green"
+            app:my_tv_solid="@color/home_orange"
             android:layout_centerVertical="true"
             app:my_tv_corner_radius="2dp"
             android:layout_marginLeft="4dp"

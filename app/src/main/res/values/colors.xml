@@ -15,7 +15,8 @@
     <color name="green2">#22ddb0</color>
     <color name="transparent_bg">#80000000</color>
 
-    <color name="home_green">#18CB6D</color>
+    <color name="home_orange">#FEA429</color>
+    <color name="orange_selected">#F37113</color>
     <color name="blue">#4ed3fd</color>
     <color name="price_red">#ff5339</color>
     <color name="red">#fc353a</color>

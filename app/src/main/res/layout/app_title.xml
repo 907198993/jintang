@@ -17,7 +17,7 @@
         android:id="@id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:background="@color/green"
+        android:background="@color/home_orange"
         android:gravity="center_vertical"
         app:titleTextColor="@color/gray_66"
         app:layout_collapseMode="pin"

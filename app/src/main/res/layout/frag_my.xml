@@ -28,7 +28,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:background="@color/green"
+                android:background="@color/home_orange"
                 >
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -108,7 +108,7 @@
                     android:textColor="@color/white"
                     android:layout_centerInParent="true"
                     android:layout_alignParentRight="true"
-                    app:my_tv_solid="#7be4b6"
+                    app:my_tv_solid="@color/home_orange"
                     app:my_tv_corner_topLeftRadius="13dp"
                     app:my_tv_corner_bottomLeftRadius="13dp"
                     />
@@ -118,7 +118,7 @@
                     android:orientation="horizontal"
                     android:gravity="center_vertical"
                     android:layout_alignParentBottom="true"
-                    android:background="#1FC37C"
+                    android:background="@color/orange_selected"
                     >
                     <LinearLayout
                         android:id="@+id/ll_my_account"

@@ -70,7 +70,7 @@
                         android:layout_height="wrap_content"
                         android:minWidth="60dp"
                         android:text="¥0.0"
-                        android:textColor="@color/green"
+                        android:textColor="@color/home_orange"
                         />
                 </LinearLayout>
                 <TextView
@@ -80,7 +80,7 @@
                     android:layout_height="match_parent"
                     android:text="结算"
                     android:gravity="center"
-                    android:background="@color/green"
+                    android:background="@color/home_orange"
                     android:textColor="@color/white"
                     />
             </com.github.customview.MyLinearLayout>
@@ -166,8 +166,8 @@
                                     app:my_tv_corner_radius="4dp"
                                     android:paddingTop="5dp"
                                     android:paddingBottom="5dp"
-                                    android:textColor="@color/green"
-                                    app:my_tv_border_color="@color/green"
+                                    android:textColor="@color/home_orange"
+                                    app:my_tv_border_color="@color/home_orange"
                                     android:ems="5"
                                     />
                                 <View

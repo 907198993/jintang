@@ -80,7 +80,6 @@ public class AllOrderFragment extends BaseFragment implements LoadMoreAdapter.On
         getData(1,false);
     }
 
-
     @Override
     protected void initRxBus() {
         super.initRxBus();
@@ -136,6 +135,4 @@ public class AllOrderFragment extends BaseFragment implements LoadMoreAdapter.On
     public void loadMore() {
         getData(pageNum,true);
     }
-
-
 }

@@ -405,6 +405,7 @@ public class AgainEvaluateActivity extends BaseActivity {
                 try {
                     List<File> files = Luban.with(mContext).load(imgSaveName).get();
                     String imgStr = BitmapUtils.bitmapToString2(files.get(0));
+
                     subscriber.onNext(imgStr);
                     subscriber.onCompleted();
                 } catch (Exception e) {

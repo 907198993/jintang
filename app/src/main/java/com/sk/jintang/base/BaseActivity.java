@@ -84,8 +84,8 @@ public abstract class BaseActivity extends IBaseActivity implements ProgressLayo
     private String appTitle,appRightTitle;
     private int appTitleColor,appRightTitleColor;
     private int appRightImg;
-    private int titleBackgroud= R.color.green;
-    private int statusBarBackgroud= R.color.green;
+    private int titleBackgroud= R.color.home_orange;
+    private int statusBarBackgroud= R.color.home_orange;
     protected TextView app_title,app_right_tv;
     protected ImageView app_right_iv;
     private View status_bar;

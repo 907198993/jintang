@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "E:\\yy_android1\\yy_android\\easeui\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-hdpi-v4\\values-hdpi-v4.xml",
+        "outputFile": "D:\\jintang\\easeui\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-hdpi-v4\\values-hdpi-v4.xml",
         "map": [
             {
                 "to": {
@@ -12,33 +12,7 @@
                     "endOffset": 327
                 },
                 "from": {
-                    "file": "C:\\Users\\Administrator\\.android\\build-cache\\05e32f26db838eb9f119587ad9a0aed65fbbe25d\\output\\res\\values-hdpi-v4\\values-hdpi-v4.xml",
-                    "position": {
-                        "startLine": 2,
-                        "startColumn": 4,
-                        "startOffset": 55,
-                        "endLine": 6,
-                        "endColumn": 13,
-                        "endOffset": 327
-                    }
-                }
-            }
-        ]
-    },
-    {
-        "outputFile": "E:\\jintang\\easeui\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-hdpi-v4\\values-hdpi-v4.xml",
-        "map": [
-            {
-                "to": {
-                    "startLine": 2,
-                    "startColumn": 4,
-                    "startOffset": 55,
-                    "endLine": 6,
-                    "endColumn": 13,
-                    "endOffset": 327
-                },
-                "from": {
-                    "file": "C:\\Users\\Administrator\\.android\\build-cache\\05e32f26db838eb9f119587ad9a0aed65fbbe25d\\output\\res\\values-hdpi-v4\\values-hdpi-v4.xml",
+                    "file": "C:\\Users\\Administrator\\.android\\build-cache\\4cc20bb3c74db5c67dd5f2e5c6916f1241f06196\\output\\res\\values-hdpi-v4\\values-hdpi-v4.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,

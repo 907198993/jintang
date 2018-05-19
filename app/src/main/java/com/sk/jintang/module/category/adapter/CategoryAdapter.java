@@ -40,7 +40,7 @@ public class CategoryAdapter extends BaseRecyclerAdapter<CategoryObj.TypeListBea
         tv_home_gc.setText(typeListBean.getGoods_type_name());
         if (i == getthisPosition()) {
             recyclerViewHolder.itemView.setBackgroundColor(Color.parseColor("#f6f6f6"));
-            tv_home_gc.setTextColor(Color.parseColor("#2DDB97"));
+            tv_home_gc.setTextColor(Color.parseColor("#FEA429"));
         } else {
             recyclerViewHolder.itemView.setBackgroundColor(Color.WHITE);
             tv_home_gc.setTextColor(Color.parseColor("#000000"));
