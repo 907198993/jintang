@@ -36,8 +36,10 @@ public class FoodAdapter extends BaseQuickAdapter<ShopDataObj.GoodsListBean, Bas
 	@Override
 	protected void convert(BaseViewHolder helper, ShopDataObj.GoodsListBean item) {
 		helper.setText(R.id.tv_name, item.getGoods_name())
-				.setText(R.id.tv_price,item.getStrPrice(mContext))
+				.setText(R.id.tv_price,item.getStrPrice(mContext,item.getPrice()))
 				.setText(R.id.tv_sale, "销量"+item.getSales_volume()+"")
+				.setText(R.id.tv_origin_price, item.getStrPrice(mContext,item.getOriginal_price()))
+
 //				.setImageResource(R.id.iv_food, item.getGoods_image()).addOnClickListener(R.id.addwidget)
 				.addOnClickListener(R.id.iv_food)
 //				.addOnClickListener(R.id.my_guige)

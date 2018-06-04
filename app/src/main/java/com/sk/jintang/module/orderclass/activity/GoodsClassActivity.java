@@ -95,7 +95,7 @@ public class GoodsClassActivity extends BaseActivity implements LoadMoreAdapter.
     ImageView iv_goods_class_scan;
     private TextView selectCategoryView;
 
-    //类别ID(0查全部)
+    //类别ID 商品类别
     private String type_id = "0";
     //(0查全部 1推荐 2热销)
     private int category = 0;
@@ -537,8 +537,6 @@ public class GoodsClassActivity extends BaseActivity implements LoadMoreAdapter.
         };
         brandAdapter.setList(brand.getResponse());
         rv_goods_shaixuan_pp.setAdapter(brandAdapter);
-
-
 
         rv_goods_shaixuan_city.setLayoutManager(new GridLayoutManager(mContext,3));
         if(cityAdapter==null){

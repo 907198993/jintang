@@ -31,7 +31,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="230dp"
-                android:background="@color/green"
+                android:background="@color/home_orange"
                 android:gravity="center"
                 android:orientation="vertical"
                 >
@@ -54,7 +54,7 @@
                     android:layout_marginTop="20dp"
                     android:gravity="center"
                     app:my_ll_corner_radius="47dp"
-                    app:my_ll_solid="#63f2bb"
+                    app:my_ll_solid="#FFD020"
                     >
 
                     <com.github.customview.MyTextView
@@ -64,7 +64,7 @@
                         android:ellipsize="end"
                         android:gravity="center"
                         tools:text="3563.00"
-                        android:textColor="@color/green"
+                        android:textColor="@color/home_orange"
                         android:textSize="18sp"
                         app:my_tv_corner_radius="42dp"
                         app:my_tv_solid="@color/white"
@@ -128,7 +128,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:text="交易明细"
-                    android:textColor="@color/green"
+                    android:textColor="@color/home_orange"
                     android:textSize="15sp"/>
             </LinearLayout>
             <android.support.v7.widget.RecyclerView

@@ -82,8 +82,8 @@ import static android.app.Activity.RESULT_OK;
 
 public class HomeFragment extends BaseFragment implements LoadMoreAdapter.OnLoadMoreListener{
 
-    @BindView(R.id.rv_home_huodong_other)
-    RecyclerView rv_home_huodong_other;
+//    @BindView(R.id.rv_home_huodong_other)
+//    RecyclerView rv_home_huodong_other;
 
    // 限时抢购右边
     @BindView(R.id.rv_home_huodong)
@@ -175,7 +175,7 @@ public class HomeFragment extends BaseFragment implements LoadMoreAdapter.OnLoad
     private HomeGCZDAdapter homeGCZDAdapter;//工程直达
     private HomePPAdapter homePPAdapter;//品牌列表
     private HomeHuoDongAdapter homeHuoDongAdapter;//今日爆款
-    private HomeOtherHuoDongAdapter homeOtherHuoDongAdapter;//按摩针灸
+//    private HomeOtherHuoDongAdapter homeOtherHuoDongAdapter;//按摩针灸
 
 
     private int screenWidth;
@@ -265,12 +265,12 @@ public class HomeFragment extends BaseFragment implements LoadMoreAdapter.OnLoad
         homeGCZDAdapter=new HomeGCZDAdapter(mContext,0);
         homePPAdapter=new HomePPAdapter(mContext,0);
         homeHuoDongAdapter=new HomeHuoDongAdapter(mContext,0);
-        homeOtherHuoDongAdapter=new HomeOtherHuoDongAdapter(mContext,0);
+//        homeOtherHuoDongAdapter=new HomeOtherHuoDongAdapter(mContext,0);
 
        //商铺种类入口
         rv_home_shop_category.setAdapter(homeShopAdapter);
         rv_home_shop_category.setNestedScrollingEnabled(false);
-        rv_home_shop_category.setLayoutManager(new GridLayoutManager(mContext,5));
+        rv_home_shop_category.setLayoutManager(new GridLayoutManager(mContext,4));
 
         //工厂直达
         rv_home_gczd.setAdapter(homeGCZDAdapter);
@@ -288,9 +288,9 @@ public class HomeFragment extends BaseFragment implements LoadMoreAdapter.OnLoad
         rv_home_huodong.setLayoutManager(new GridLayoutManager(mContext,3));
         rv_home_huodong.addItemDecoration(new DividerGridItemDecoration(mContext,PhoneUtils.dip2px(mContext,2)));
 
-        rv_home_huodong_other.setAdapter(homeOtherHuoDongAdapter);
-        rv_home_huodong_other.setNestedScrollingEnabled(false);
-        rv_home_huodong_other.setLayoutManager(new GridLayoutManager(mContext,4));
+//        rv_home_huodong_other.setAdapter(homeOtherHuoDongAdapter);
+//        rv_home_huodong_other.setNestedScrollingEnabled(false);
+//        rv_home_huodong_other.setLayoutManager(new GridLayoutManager(mContext,4));
 //        rv_home_huodong.addItemDecoration(new DividerGridItemDecoration(mContext,PhoneUtils.dip2px(mContext,2)));
     }
 
@@ -331,7 +331,7 @@ public class HomeFragment extends BaseFragment implements LoadMoreAdapter.OnLoad
             public void onSuccess(HomeButtomObj obj) {
                 homeGCZDAdapter.setList(obj.getFactory_list(),true);
                 homePPAdapter.setList(obj.getBrand_list(),true);
-                homeOtherHuoDongAdapter.setList(obj.getGoods_type_list(),true);
+//                homeOtherHuoDongAdapter.setList(obj.getGoods_type_list(),true);
 
             }
         });

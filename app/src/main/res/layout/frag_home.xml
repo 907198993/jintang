@@ -567,6 +567,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
                     android:layout_marginTop="5dp"
+                    android:paddingLeft="10dp"
                     android:orientation="horizontal"
                     android:gravity="center_vertical"
                     android:background="@color/white"
@@ -801,6 +802,7 @@
                     android:layout_marginTop="5dp"
                     android:paddingTop="5dp"
                     android:paddingBottom="5dp"
+                    android:visibility="gone"
                     android:background="@color/white"
                     >
 

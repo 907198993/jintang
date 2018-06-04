@@ -79,6 +79,7 @@ public class ListContainer extends LinearLayout {
 			goodsListBean.setTypeName(list.getGoodsList().get(i).getTypeName());
 			goodsListBean.setGoods_name(list.getGoodsList().get(i).getGoods_name());
 			goodsListBean.setPrice(list.getGoodsList().get(i).getPrice());
+			goodsListBean.setOriginal_price(list.getGoodsList().get(i).getOriginal_price());
 			goodsListBean.setSales_volume(list.getGoodsList().get(i).getSales_volume());
 			goodsListBean.setGoodsId(list.getGoodsList().get(i).getGoodsId());
 			goodsListBean.setSpecificationList(list.getGoodsList().get(i).getSpecificationList());

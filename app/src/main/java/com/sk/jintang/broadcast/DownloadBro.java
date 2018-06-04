@@ -19,6 +19,7 @@ public class DownloadBro extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
 
+
         String action = intent.getAction(); //动作
         Log.i("===","action==="+action);
         if (action.equals("download")) {

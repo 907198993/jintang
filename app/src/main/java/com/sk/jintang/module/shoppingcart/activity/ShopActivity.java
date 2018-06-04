@@ -136,9 +136,9 @@ public class ShopActivity extends BaseActivity {
 
     private void getData(String storeId) {
         Map<String, String> map = new HashMap<String, String>();
-        map.put("sign",  "admin123");
         map.put("storeId", storeId);
         map.put("userId",getUsersId());
+        map.put("sign",  GetSign.getSign(map));
         ApiRequest.getShopsDetail(map, new MyCallBack<ShopDetailObj>(mContext, pcfl, pl_load) {
             @Override
             public void onSuccess(ShopDetailObj obj) {
@@ -180,9 +180,9 @@ public class ShopActivity extends BaseActivity {
             case R.id.tv_attention:
                 if(attention.equals("0")){
                     Map<String, String> map = new HashMap<String, String>();
-                    map.put("sign",  "admin123");
                     map.put("storeId", storeId);
                     map.put("userId",getUsersId());
+                    map.put("sign",  GetSign.getSign(map));
                     ApiRequest.getShopAttention(map, new MyCallBack<StatusObj>(mContext, pcfl, pl_load) {
                         @Override
                         public void onSuccess(StatusObj obj) {
@@ -197,9 +197,9 @@ public class ShopActivity extends BaseActivity {
                     });
                 }else{
                     Map<String, String> map = new HashMap<String, String>();
-                    map.put("sign",  "admin123");
                     map.put("storeId", storeId);
                     map.put("userId",getUsersId());
+                    map.put("sign",  GetSign.getSign(map));
                     ApiRequest.getShopAbolishAttention(map, new MyCallBack<StatusObj>(mContext, pcfl, pl_load) {
                         @Override
                         public void onSuccess(StatusObj obj) {

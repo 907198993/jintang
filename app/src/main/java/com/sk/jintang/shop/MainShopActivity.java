@@ -215,6 +215,9 @@ public class MainShopActivity extends BaseActivity implements AddWidget.OnAddCli
         ViewPager mViewPager = (ViewPager) findViewById(R.id.viewpager);
         IndicatorViewPager indicatorViewPager = new IndicatorViewPager(mSv, mViewPager);
         firstFragment = new FirstFragment();
+        Bundle bundle = new Bundle();
+        bundle.putString("storeId", storeId);
+        firstFragment.setArguments(bundle);
         ViewpagerAdapter myAdapter = new ViewpagerAdapter(getSupportFragmentManager());
         indicatorViewPager.setAdapter(myAdapter);
     }

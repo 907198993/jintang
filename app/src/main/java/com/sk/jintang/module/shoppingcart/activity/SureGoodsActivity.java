@@ -372,8 +372,9 @@ public class SureGoodsActivity extends BaseActivity   {
 
             Map<String,String>map=new HashMap<String,String>();
             map.put("user_id", getUserId());
-            map.put("sign", "admin123");
             map.put("is_byNow",isBuyNow);
+            map.put("sign",  GetSign.getSign(map));
+
             ApiRequest.hourDaoSureOrder(map,item, new MyCallBack<SureOrderObj>(mContext,pcfl,pl_load) {
                 @Override
                 public void onSuccess(SureOrderObj obj) {

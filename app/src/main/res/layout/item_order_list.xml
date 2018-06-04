@@ -51,7 +51,7 @@
                 android:id="@+id/tv_order_type"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/green"
+                android:textColor="@color/home_orange"
                 tools:text="退款中"
                 />
         </LinearLayout>
@@ -136,7 +136,7 @@
                 android:textColor="@color/white"
                 android:textSize="14sp"
                 app:my_tv_corner_radius="4dp"
-                app:my_tv_solid="@color/green"
+                app:my_tv_solid="@color/home_orange"
                 />
 
             <com.github.customview.MyTextView
@@ -162,7 +162,7 @@
                 android:textColor="@color/white"
                 android:textSize="14sp"
                 app:my_tv_corner_radius="4dp"
-                app:my_tv_solid="@color/green"
+                app:my_tv_solid="@color/home_orange"
                 />
 
             <com.github.customview.MyTextView
@@ -175,7 +175,7 @@
                 android:textColor="@color/white"
                 android:textSize="14sp"
                 app:my_tv_corner_radius="4dp"
-                app:my_tv_solid="@color/green"
+                app:my_tv_solid="@color/home_orange"
                 />
         </LinearLayout>
     </LinearLayout>

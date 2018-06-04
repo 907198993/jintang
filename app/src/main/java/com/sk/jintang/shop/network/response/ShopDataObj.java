@@ -16,31 +16,36 @@ import java.util.List;
  */
 
 public class ShopDataObj  implements Serializable{
-
+        /**
+         * isFreePs : 1
+         * startPs : 20
+         * storeTypeList : [{"storeId":9,"typeName":"蔬菜","id":53,"sort":1}]
+         * goodsList : [{"goodsId":436,"goods_name":"333","price":90,"goods_image":"http://47.104.102.17:8001/upload/201806/01/201806011453458201.png","sales_volume":0,"store_typeId":53,"typeName":"蔬菜","original_price":100,"specificationList":[{"id":2244,"goods_id":436,"specification":"1","price":10,"images":"http://47.104.102.17:8001/upload/201806/01/201806011454139746.png","stock":82}]},{"goodsId":437,"goods_name":"张三","price":0.25,"goods_image":"http://47.104.102.17:8001/upload/201806/02/201806021106473289.png","sales_volume":0,"store_typeId":53,"typeName":"蔬菜","original_price":1,"specificationList":[{"id":2243,"goods_id":437,"specification":"1","price":1.01,"images":"http://47.104.102.17:8001/upload/201806/02/201806021107157607.png","stock":9998}]}]
+         */
 
         private int isFreePs;
         private int startPs;
         private List<StoreTypeListBean> storeTypeList;
         private List<GoodsListBean> goodsList;
 
+        public int getIsFreePs() {
+            return isFreePs;
+        }
 
-    public int getIsFreePs() {
-        return isFreePs;
-    }
+        public void setIsFreePs(int isFreePs) {
+            this.isFreePs = isFreePs;
+        }
 
-    public void setIsFreePs(int isFreePs) {
-        this.isFreePs = isFreePs;
-    }
+        public int getStartPs() {
+            return startPs;
+        }
 
-    public int getStartPs() {
-        return startPs;
-    }
+        public void setStartPs(int startPs) {
+            this.startPs = startPs;
+        }
 
-    public void setStartPs(int startPs) {
-        this.startPs = startPs;
-    }
 
-    public List<StoreTypeListBean> getStoreTypeList() {
+        public List<StoreTypeListBean> getStoreTypeList() {
             return storeTypeList;
         }
 
@@ -56,11 +61,11 @@ public class ShopDataObj  implements Serializable{
             this.goodsList = goodsList;
         }
 
-        public static class StoreTypeListBean {
+        public static class StoreTypeListBean  implements Serializable {
             /**
-             * storeId : 6
-             * typeName : 畅销鞋
-             * id : 38
+             * storeId : 9
+             * typeName : 蔬菜
+             * id : 53
              * sort : 1
              */
 
@@ -102,15 +107,19 @@ public class ShopDataObj  implements Serializable{
             }
         }
 
-        public static class GoodsListBean implements Serializable {
+        public static class GoodsListBean   implements Serializable {
             /**
-             * goods_name : 好看的运动鞋
-             * price : 0
-             * goods_image : http://192.168.0.108:20001/upload/201804/09/201804091915232961.jpg
+             * goodsId : 436
+             * goods_name : 333
+             * price : 90.0
+             * goods_image : http://47.104.102.17:8001/upload/201806/01/201806011453458201.png
              * sales_volume : 0
-             * store_typeId : 38
-             * typeName : 畅销鞋
+             * store_typeId : 53
+             * typeName : 蔬菜
+             * original_price : 100.0
+             * specificationList : [{"id":2244,"goods_id":436,"specification":"1","price":10,"images":"http://47.104.102.17:8001/upload/201806/01/201806011454139746.png","stock":82}]
              */
+
             private String goodsId;
             private String goods_name;
             private BigDecimal price;
@@ -118,16 +127,9 @@ public class ShopDataObj  implements Serializable{
             private int sales_volume;
             private int store_typeId;
             private String typeName;
+            private BigDecimal original_price;
             private int selectCount;
             private List<SpecificationListBean> specificationList;
-
-            public List<SpecificationListBean> getSpecificationList() {
-                return specificationList;
-            }
-
-            public void setSpecificationList(List<SpecificationListBean> specificationList) {
-                this.specificationList = specificationList;
-            }
 
             public int getSelectCount() {
                 return selectCount;
@@ -135,6 +137,14 @@ public class ShopDataObj  implements Serializable{
 
             public void setSelectCount(int selectCount) {
                 this.selectCount = selectCount;
+            }
+
+            public String getGoodsId() {
+                return goodsId;
+            }
+
+            public void setGoodsId(String goodsId) {
+                this.goodsId = goodsId;
             }
 
             public String getGoods_name() {
@@ -145,6 +155,11 @@ public class ShopDataObj  implements Serializable{
                 this.goods_name = goods_name;
             }
 
+
+
+            public String getGoods_image() {
+                return goods_image;
+            }
             public BigDecimal getPrice() {
                 return price;
             }
@@ -166,9 +181,6 @@ public class ShopDataObj  implements Serializable{
                 AbsoluteSizeSpan span = new AbsoluteSizeSpan(ViewUtils.sp2px(context, 11));
                 spanString.setSpan(span, 0, 1, Spannable.SPAN_INCLUSIVE_INCLUSIVE);
                 return spanString;
-            }
-            public String getGoods_image() {
-                return goods_image;
             }
 
             public void setGoods_image(String goods_image) {
@@ -199,78 +211,86 @@ public class ShopDataObj  implements Serializable{
                 this.typeName = typeName;
             }
 
-            public String getGoodsId() {
-                return goodsId;
+            public BigDecimal getOriginal_price() {
+                return original_price;
             }
 
-            public void setGoodsId(String goodsId) {
-                this.goodsId = goodsId;
+            public void setOriginal_price(BigDecimal original_price) {
+                this.original_price = original_price;
             }
-            public static class SpecificationListBean implements Serializable {
-                    /**
-                     * id : 2226
-                     * goods_id : 422
-                     * specification : 1
-                     * price : 999
-                     * images : http://47.104.102.17:8001/upload/201804/09/201804091915503326.jpg
-                     * stock : 86
-                     */
 
-                    private int id;
-                    private int goods_id;
-                    private String specification;
-                    private int price;
-                    private String images;
-                    private int stock;
+            public List<SpecificationListBean> getSpecificationList() {
+                return specificationList;
+            }
 
-                    public int getId() {
-                        return id;
-                    }
+            public void setSpecificationList(List<SpecificationListBean> specificationList) {
+                this.specificationList = specificationList;
+            }
 
-                    public void setId(int id) {
-                        this.id = id;
-                    }
+            public static class SpecificationListBean   implements Serializable{
+                /**
+                 * id : 2244
+                 * goods_id : 436
+                 * specification : 1
+                 * price : 10.0
+                 * images : http://47.104.102.17:8001/upload/201806/01/201806011454139746.png
+                 * stock : 82
+                 */
 
-                    public int getGoods_id() {
-                        return goods_id;
-                    }
+                private int id;
+                private int goods_id;
+                private String specification;
+                private double price;
+                private String images;
+                private int stock;
 
-                    public void setGoods_id(int goods_id) {
-                        this.goods_id = goods_id;
-                    }
-
-                    public String getSpecification() {
-                        return specification;
-                    }
-
-                    public void setSpecification(String specification) {
-                        this.specification = specification;
-                    }
-
-                    public int getPrice() {
-                        return price;
-                    }
-
-                    public void setPrice(int price) {
-                        this.price = price;
-                    }
-
-                    public String getImages() {
-                        return images;
-                    }
-
-                    public void setImages(String images) {
-                        this.images = images;
-                    }
-
-                    public int getStock() {
-                        return stock;
-                    }
-
-                    public void setStock(int stock) {
-                        this.stock = stock;
-                    }
+                public int getId() {
+                    return id;
                 }
 
+                public void setId(int id) {
+                    this.id = id;
+                }
+
+                public int getGoods_id() {
+                    return goods_id;
+                }
+
+                public void setGoods_id(int goods_id) {
+                    this.goods_id = goods_id;
+                }
+
+                public String getSpecification() {
+                    return specification;
+                }
+
+                public void setSpecification(String specification) {
+                    this.specification = specification;
+                }
+
+                public double getPrice() {
+                    return price;
+                }
+
+                public void setPrice(double price) {
+                    this.price = price;
+                }
+
+                public String getImages() {
+                    return images;
+                }
+
+                public void setImages(String images) {
+                    this.images = images;
+                }
+
+                public int getStock() {
+                    return stock;
+                }
+
+                public void setStock(int stock) {
+                    this.stock = stock;
+                }
+            }
         }
 }

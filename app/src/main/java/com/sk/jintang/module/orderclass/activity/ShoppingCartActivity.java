@@ -298,6 +298,7 @@ public class ShoppingCartActivity extends BaseActivity {
                 intent = new Intent();
                 intent.putParcelableArrayListExtra(Constant.IParam.shoppingGoods, list);
                 intent.putExtra(com.sk.jintang.module.orderclass.Constant.IParam.hourDao,true);
+                intent.putExtra(com.sk.jintang.module.orderclass.Constant.IParam.is_buy_now,"0");
                 STActivity(intent, SureGoodsActivity.class);
                 break;
         }

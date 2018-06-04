@@ -14,8 +14,8 @@
         android:layout_height="50dp"
         android:layout_marginBottom="10dp"
         android:background="@color/white"
-        app:tabIndicatorColor="@color/green"
-        app:tabSelectedTextColor="@color/green">
+        app:tabIndicatorColor="@color/home_orange"
+        app:tabSelectedTextColor="@color/home_orange">
 
     </android.support.design.widget.TabLayout>
 

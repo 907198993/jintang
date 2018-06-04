@@ -12,10 +12,10 @@ public class Config {
 
 /*e021bc831d4df2d593b78e8695dea260
 wx23ef688729e8e8ba*/
-    public static final String weixing_id = "wx23ef688729e8e8ba";
-    public static final String weixing_AppSecret = "e021bc831d4df2d593b78e8695dea260";
-    public static final String weixing_miyao = "NVwPLeIStgt1yUQ6H6A0LjMHpe2abwkM";
-    public static final String weixing_mch_id = "1489530042";//商户号
+    public static final String weixing_id = "wxc7bb4e45359dfa6a";
+    public static final String weixing_AppSecret = "412ed3f8fa07ed7eae168885083a0cb6";
+    public static final String weixing_miyao = "ab33621bcf6c533a98ae660c4f7ce404";
+    public static final String weixing_mch_id = "1505264051";//商户号
 
     public static final String zhifubao_app_id = "2017101009225222";//支付宝appid
     public static final String zhifubao_pid = "2088521340781744";

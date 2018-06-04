@@ -59,7 +59,7 @@ public interface IRequest {
     Call<ResponseObj<LoginObj>> userLogin(@QueryMap Map<String,String>map);
 
     //第三方登录
-    @GET("api/Lib/GetAddWXUser")
+    @GET("api/MyLib/GetAddWXUser")
     Call<ResponseObj<LoginObj>> platformLogin(@QueryMap Map<String,String>map);
 
     //退出登录

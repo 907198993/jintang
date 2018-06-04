@@ -306,7 +306,7 @@
                     android:layout_height="wrap_content"
                     android:minWidth="70dp"
                     tools:text="¥105.00"
-                    android:textColor="@color/green"
+                    android:textColor="@color/home_orange"
                     />
             </LinearLayout>
             <TextView
@@ -316,7 +316,7 @@
                 android:layout_height="50dp"
                 android:text="提交订单"
                 android:gravity="center"
-                android:background="@color/green"
+                android:background="@color/home_orange"
                 android:textColor="@color/white"
                 />
         </com.github.customview.MyLinearLayout>

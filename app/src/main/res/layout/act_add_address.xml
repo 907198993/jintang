@@ -252,8 +252,8 @@
             android:textColor="@color/white"
             android:textSize="17sp"
             app:my_tv_corner_radius="4dp"
-            app:my_tv_press="@color/green_press"
-            app:my_tv_solid="@color/green"
+            app:my_tv_press="@color/orange_selected"
+            app:my_tv_solid="@color/home_orange"
             />
     </com.sk.jintang.view.ProgressLayout>
 </LinearLayout>

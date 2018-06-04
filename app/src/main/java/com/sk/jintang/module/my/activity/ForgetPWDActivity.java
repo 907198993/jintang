@@ -54,6 +54,7 @@ public class ForgetPWDActivity extends BaseActivity {
     @Override
     protected void initData() {
 
+
     }
 
     @Override

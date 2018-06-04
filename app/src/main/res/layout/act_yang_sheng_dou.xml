@@ -53,7 +53,7 @@
                             android:layout_width="84dp"
                             android:layout_height="84dp"
                             android:gravity="center"
-                            app:my_ll_solid="#63f2bb"
+                            app:my_ll_solid="#FFD020"
                             app:my_ll_corner_radius="47dp"
                             >
                         <com.github.customview.MyTextView

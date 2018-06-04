@@ -6,6 +6,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.github.customview.MyImageView;
+import com.sk.jintang.GetSign;
 import com.sk.jintang.R;
 import com.sk.jintang.base.BaseActivity;
 import com.sk.jintang.base.MyCallBack;
@@ -56,8 +57,8 @@ public class ShopIntroduceActivity extends BaseActivity {
     protected void initData() {
         String storeId = getIntent().getStringExtra(com.sk.jintang.module.my.Constant.IParam.storeId);
         Map<String,String> map=new HashMap<String,String>();
-        map.put("sign", "admin123");
         map.put("storeId",storeId);
+        map.put("sign",  GetSign.getSign(map));
         ApiRequest.getShopIntroduce(map, new MyCallBack<ShopIntroduceObj>(mContext,pcfl,pl_load) {
             @Override
             public void onSuccess(ShopIntroduceObj obj) {

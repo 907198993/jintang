@@ -87,7 +87,7 @@
         android:text="忘记密码?"
         android:padding="10dp"
         android:layout_marginTop="10dp"
-        android:textColor="@color/green"
+        android:textColor="@color/home_orange"
         />
     <com.github.customview.MyTextView
         android:id="@+id/tv_login_commit"
@@ -96,8 +96,8 @@
         android:text="登录"
         android:textColor="@color/white"
         android:layout_margin="10dp"
-        app:my_tv_solid="@color/green"
-        app:my_tv_press="@color/green_press"
+        app:my_tv_solid="@color/home_orange"
+        app:my_tv_press="@color/orange_selected"
         android:layout_alignParentBottom="true"
         android:gravity="center"
         app:my_tv_corner_radius="4dp"

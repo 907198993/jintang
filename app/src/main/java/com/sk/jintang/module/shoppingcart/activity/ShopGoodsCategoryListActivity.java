@@ -17,6 +17,7 @@ import com.github.baseclass.adapter.LoadMoreAdapter;
 import com.github.baseclass.adapter.LoadMoreViewHolder;
 import com.github.baseclass.view.MyPopupwindow;
 import com.github.customview.MyLinearLayout;
+import com.sk.jintang.GetSign;
 import com.sk.jintang.R;
 import com.sk.jintang.base.BaseActivity;
 import com.sk.jintang.base.MyCallBack;
@@ -204,6 +205,7 @@ public class ShopGoodsCategoryListActivity extends BaseActivity  implements Load
         map.put("sign", "admin123");
         map.put("storeId", storeId);
         map.put("newGoods", "0");//默认0
+        map.put("sign",  GetSign.getSign(map));
         ApiRequest.getStoreGoodsList(map, new MyCallBack<List<GoodsListObj>>(mContext, pcfl, pl_load) {
             @Override
             public void onSuccess(List<GoodsListObj> list) {

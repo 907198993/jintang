@@ -89,7 +89,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="¥"
-            android:textColor="@color/green"
+            android:textColor="@color/home_orange"
             />
         <TextView
             android:id="@+id/tv_goods_price"
@@ -97,7 +97,7 @@
             android:layout_weight="1"
             android:layout_height="wrap_content"
             tools:text="12.5"
-            android:textColor="@color/green"
+            android:textColor="@color/home_orange"
             />
         <ImageView
             android:id="@+id/iv_goods_add_shopping"

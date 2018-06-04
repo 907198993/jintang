@@ -51,7 +51,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:text="¥12.5"
-                android:textColor="@color/green"
+                android:textColor="@color/home_orange"
                 android:layout_marginRight="15dp"
                 android:textSize="15sp"
                 />
@@ -73,7 +73,7 @@
             <ImageView
                 android:layout_width="17dp"
                 android:layout_height="17dp"
-                android:src="@drawable/my18"
+                android:src="@drawable/collected"
                 />
             <TextView
                 android:id="@+id/tv_my_collect_uncollect"
@@ -98,7 +98,7 @@
                     android:layout_height="30dp"
                     android:text="立即购买"
                     android:gravity="center"
-                    app:my_tv_solid="#ff18cb6d"
+                    app:my_tv_solid="@color/home_orange"
                     android:textColor="@color/white"
                     app:my_tv_corner_radius="4dp"
                     />

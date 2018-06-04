@@ -14,6 +14,7 @@ import com.github.retrofitutil.NetWorkManager;
 //import com.hyphenate.easeui.EaseUI;
 import com.hyphenate.easeui.EaseUI;
 import com.iflytek.cloud.SpeechUtility;
+import com.squareup.leakcanary.LeakCanary;
 import com.umeng.socialize.PlatformConfig;
 import com.umeng.socialize.UMShareAPI;
 import com.uuzuche.lib_zxing.activity.ZXingLibrary;
@@ -32,11 +33,13 @@ public class MyApplication extends MultiDexApplication {
     }
     @Override
     public void onCreate() {
+
+//        讯飞初始化
+//        SpeechUtility.createUtility(this, "appid=" + Config.xunfei_app_id);
+        super.onCreate();
+        LeakCanary.install(this);
         ImagePipelineConfig frescoConfig = ImagePipelineConfig.newBuilder(this).setDownsampleEnabled(true).build();
         Fresco.initialize(this, frescoConfig);
-//        讯飞初始化
-        SpeechUtility.createUtility(this, "appid=" + Config.xunfei_app_id);
-        super.onCreate();
         if(true&&BuildConfig.DEBUG){                           //http://192.168.0.19:20001/        //http://121.40.186.118:5108
          //   NetWorkManager.getInstance(getApplicationContext(),"http://121.40.186.118:5108",BuildConfig.DEBUG).complete();
 
@@ -54,8 +57,6 @@ public class MyApplication extends MultiDexApplication {
 //           NetWorkManager.getInstance(getApplicationContext(),"http://121.40.186.118:5008",BuildConfig.DEBUG).complete();
 ////            NetWorkManager.getInstance(getApplicationContext(),"http://192.168.0.19:20001",BuildConfig.DEBUG).complete();
 //        }
-
-        
 
         ZXingLibrary.initDisplayOpinion(this);
         SDKInitializer.initialize(getApplicationContext());
@@ -81,5 +82,4 @@ public class MyApplication extends MultiDexApplication {
     private void huanXin() {
       EaseUI.getInstance().init(this, null);
     }
-
 }

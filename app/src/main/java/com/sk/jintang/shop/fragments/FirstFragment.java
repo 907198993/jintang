@@ -28,12 +28,16 @@ public class FirstFragment extends LazyFragment {
 
 	private ListContainer listContainer;
 
-
+	private  String storeId;
 	@Override
 	protected void onCreateViewLazy(Bundle savedInstanceState) {
 		super.onCreateViewLazy(savedInstanceState);
 		setContentView(R.layout.fragment_first);
 		listContainer = (ListContainer) findViewById(R.id.listcontainer);
+		Bundle bundle = getArguments();//从activity传过来的Bundle
+		if(bundle!=null){
+			storeId = (bundle.getString("storeId"));
+		}
 		getData();
 	}
 
@@ -47,7 +51,7 @@ public class FirstFragment extends LazyFragment {
 
 	private void getData() {
 		Map<String,String> map=new HashMap<String,String>();
-		map.put("storeId","6");
+		map.put("storeId",storeId);
 		map.put("sign", GetSign.getSign(map));
 		ApiRequest.getSpecialStoreGoodsList(map, new MyCallBack<ShopDataObj>(getActivity()) {
 			@Override
