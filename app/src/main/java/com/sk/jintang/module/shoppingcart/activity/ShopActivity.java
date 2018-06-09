@@ -162,12 +162,12 @@ public class ShopActivity extends BaseActivity {
             case R.id.iv_goods_detail_back:
                 finish();
                 break;
-            case R.id.linear_image_category:
+            case R.id.linear_image_category:  //分类
                 intent=new Intent();
                 intent.putExtra(com.sk.jintang.module.my.Constant.IParam.storeId,storeId+"");
                 STActivity(intent,ShopGoodsCategoryActivity.class);
                 break;
-            case R.id.shop_goods_category_text:
+            case R.id.shop_goods_category_text://分类
                 intent=new Intent();
                 intent.putExtra(com.sk.jintang.module.my.Constant.IParam.storeId,storeId+"");
                 STActivity(intent,ShopGoodsCategoryActivity.class);

@@ -29,6 +29,7 @@ import com.github.androidtools.SPUtils;
 import com.github.androidtools.ToastUtils;
 import com.github.florent37.viewanimator.ViewAnimator;
 import com.sk.jintang.Config;
+import com.sk.jintang.GetSign;
 import com.sk.jintang.R;
 import com.sk.jintang.base.*;
 import com.sk.jintang.module.my.Constant;
@@ -161,9 +162,9 @@ public class MainShopActivity extends BaseActivity implements AddWidget.OnAddCli
     private void getData(String storeId) {
         showProgress();
         Map<String, String> map = new HashMap<String, String>();
-        map.put("sign",  "admin123");
         map.put("storeId", storeId);
         map.put("userId", SPUtils.getPrefString(mContext, Config.user_id,"0"));
+        map.put("sign",  GetSign.getSign(map));
         com.sk.jintang.module.orderclass.network.ApiRequest.getSpecialShopDetail(map, new MyCallBack<SpecialShopDetailObj>(mContext, pl_load) {
             @Override
             public void onSuccess(SpecialShopDetailObj obj) {
@@ -260,9 +261,9 @@ public class MainShopActivity extends BaseActivity implements AddWidget.OnAddCli
             }
             if(attention.equals("0")){
                 Map<String, String> map = new HashMap<String, String>();
-                map.put("sign",  "admin123");
                 map.put("storeId", storeId);
                 map.put("userId",SPUtils.getPrefString(mContext,Config.user_id,null));
+                map.put("sign",  GetSign.getSign(map));
                 ApiRequest.getShopAttention(map, new MyCallBack<StatusObj>(mContext, pl_load) {
                     @Override
                     public void onSuccess(StatusObj obj) {
@@ -278,9 +279,9 @@ public class MainShopActivity extends BaseActivity implements AddWidget.OnAddCli
                 });
             }else{
                 Map<String, String> map = new HashMap<String, String>();
-                map.put("sign",  "admin123")  ;
                 map.put("storeId", storeId);
                 map.put("userId",SPUtils.getPrefString(mContext,Config.user_id,null));
+                map.put("sign",  GetSign.getSign(map));
                 ApiRequest.getShopAbolishAttention(map, new MyCallBack<StatusObj>(mContext, pl_load) {
                     @Override
                     public void onSuccess(StatusObj obj) {

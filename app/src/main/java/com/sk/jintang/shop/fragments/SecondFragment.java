@@ -69,8 +69,8 @@ public class SecondFragment extends BaseFragment {
 
 	private void getData() {
 		Map<String,String> map=new HashMap<String,String>();
-		map.put("sign", "admin123");
 		map.put("storeId",storeId);
+		map.put("sign",  GetSign.getSign(map));
 		ApiRequest.getShopIntroduce(map, new MyCallBack<ShopIntroduceObj>(getActivity()) {
 			@Override
 			public void onSuccess(ShopIntroduceObj obj) {

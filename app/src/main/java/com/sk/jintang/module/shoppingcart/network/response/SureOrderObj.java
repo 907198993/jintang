@@ -25,14 +25,14 @@ public class SureOrderObj extends BaseObj {
 
         private double subtotal;
         private int gong;
-        private int courier;
+        private String courier;
         private Object city_list;
         private int youhui_num;
         private int keeping_bean;
         private int is_yincang;
         private int keeping_bean_proportion;
         private double total_up;
-        private List<AddressListBean> address_list;
+        private Object address_list;
         private List<OrderGoodsListBean> orderGoods_list;
 
         public double getSubtotal() {
@@ -51,11 +51,11 @@ public class SureOrderObj extends BaseObj {
             this.gong = gong;
         }
 
-        public int getCourier() {
+        public String getCourier() {
             return courier;
         }
 
-        public void setCourier(int courier) {
+        public void setCourier(String courier) {
             this.courier = courier;
         }
 
@@ -107,15 +107,15 @@ public class SureOrderObj extends BaseObj {
             this.total_up = total_up;
         }
 
-        public List<AddressListBean> getAddress_list() {
-            return address_list;
-        }
+    public Object getAddress_list() {
+        return address_list;
+    }
 
-        public void setAddress_list(List<AddressListBean> address_list) {
-            this.address_list = address_list;
-        }
+    public void setAddress_list(Object address_list) {
+        this.address_list = address_list;
+    }
 
-        public List<OrderGoodsListBean> getOrderGoods_list() {
+    public List<OrderGoodsListBean> getOrderGoods_list() {
             return orderGoods_list;
         }
 
@@ -139,6 +139,15 @@ public class SureOrderObj extends BaseObj {
             private String shipping_address;
             private String shipping_address_details;
             private String quanbu;
+            private String  coord;
+
+            public String getCoord() {
+                return coord;
+            }
+
+            public void setCoord(String coord) {
+                this.coord = coord;
+            }
 
             public int getId() {
                 return id;
@@ -199,6 +208,24 @@ public class SureOrderObj extends BaseObj {
             private List<GoodsListBean> goodsList;
             private double xiaoji;
             private int count;
+            private String yunfei;
+            private String liuyan;
+
+            public String getLiuyan() {
+                return liuyan;
+            }
+
+            public void setLiuyan(String liuyan) {
+                this.liuyan = liuyan;
+            }
+
+            public String getYunfei() {
+                return yunfei;
+            }
+
+            public void setYunfei(String yunfei) {
+                this.yunfei = yunfei;
+            }
 
             public double getXiaoji() {
                 return xiaoji;

@@ -31,7 +31,7 @@ public interface IRequest {
     Call<ResponseObj<HomeBannerObj>> getHomePage(@QueryMap Map<String,String> map);
 
     //app更新
-    @GET("api/Lib/GetVersionUpdate")
+    @GET("api/MyLib/GetVersionUpdate")
     Call<ResponseObj<AppVersionObj>> getAppVersion(@QueryMap Map<String,String> map);
 
     //广告图片
@@ -59,7 +59,7 @@ public interface IRequest {
     Call<ResponseObj<List<BrandObj>>> getBrandList(@QueryMap Map<String,String> map);
 
     //获取支付url
-    @GET("api/Lib/GetPayInfo")
+    @GET("api/MyLib/GetPayInfo")
     Call<ResponseObj<BaseObj>> getPayNotifyUrl(@QueryMap Map<String,String> map);
 
     //扫码

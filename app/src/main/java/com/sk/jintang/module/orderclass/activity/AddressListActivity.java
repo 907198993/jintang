@@ -10,6 +10,7 @@ import android.widget.CheckBox;
 import android.widget.TextView;
 
 import com.github.androidtools.PhoneUtils;
+import com.github.androidtools.SPUtils;
 import com.github.androidtools.inter.MyOnClickListener;
 import com.github.baseclass.adapter.LoadMoreAdapter;
 import com.github.baseclass.adapter.LoadMoreViewHolder;
@@ -82,7 +83,7 @@ public class AddressListActivity extends BaseActivity implements LoadMoreAdapter
                             @Override
                             public void onSuccess(BaseObj obj) {
                                 showMsg(obj.getMsg());
-
+                                SPUtils.setPrefString(mContext, Config.default_address,addressId);
                                 getData();
                             }
                         });

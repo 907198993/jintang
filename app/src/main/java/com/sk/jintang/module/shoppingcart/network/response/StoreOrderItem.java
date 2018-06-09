@@ -1,6 +1,7 @@
 package com.sk.jintang.module.shoppingcart.network.response;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Administrator on 2018/4/7.
@@ -21,7 +22,7 @@ public class StoreOrderItem {
     public static class StoreOrder {
 
         private List<SureGoodsItem> goods_list;
-        private List<Remark> remarkList;
+        private List remarkList;
 
 
 
@@ -33,12 +34,12 @@ public class StoreOrderItem {
         this.goods_list = goods_list;
     }
 
-    public List<Remark> getRemarkList() {
-        return remarkList;
-    }
+        public List getRemarkList() {
+            return remarkList;
+        }
 
-    public void setRemarkList(List<Remark> remarkList) {
-        this.remarkList = remarkList;
-    }
+        public void setRemarkList(List remarkList) {
+            this.remarkList = remarkList;
+        }
     }
 }

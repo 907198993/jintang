@@ -8,15 +8,19 @@ import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioGroup;
+import android.widget.TextSwitcher;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,6 +31,7 @@ import com.github.androidtools.SPUtils;
 import com.github.androidtools.inter.MyOnClickListener;
 import com.github.baseclass.adapter.LoadMoreAdapter;
 import com.github.baseclass.adapter.LoadMoreViewHolder;
+import com.github.baseclass.adapter.ViewHolder;
 import com.github.baseclass.rx.IOCallBack;
 import com.sk.jintang.Config;
 import com.sk.jintang.GetSign;
@@ -61,6 +66,7 @@ import com.suke.widget.SwitchButton;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -84,8 +90,6 @@ public class SureGoodsActivity extends BaseActivity   {
 //    TextView tv_sure_order_num;
 //    @BindView(R.id.tv_sure_order_xiaoji)
 //    TextView tv_sure_order_xiaoji;
-    @BindView(R.id.tv_sure_order_kuaidi)
-    TextView tv_sure_order_kuaidi;
     @BindView(R.id.tv_sure_order_fapiao)
     TextView tv_sure_order_fapiao;
 //    @BindView(R.id.et_sure_order_liuyan)
@@ -130,9 +134,15 @@ public class SureGoodsActivity extends BaseActivity   {
     private String isBuyNow;//1或0  1为立即购买，0 为购物车购买
     private double minMoney;
     private String cityStr="";
+
+    private String  addressID;//默认地址ID
     private  List<SureOrderObj.OrderGoodsListBean> orderGoodsListBean;
     ArrayList<ShoppingCartObj> shoppingCartObjList;
     private  ShoppingCartItem  specialGoodsItem;
+
+    List remarkList = new ArrayList();
+    Remark remark  ;//留
+
     @Override
     protected int getContentView() {
         setAppTitle("确认订单");
@@ -142,8 +152,17 @@ public class SureGoodsActivity extends BaseActivity   {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        remarkList.clear();
         LocalBroadcastManager.getInstance(mContext).unregisterReceiver(paySuccessBro);
     }
+
+
+    public void saveEditData(int position, String str,int storeId) {
+        Log.d("SureGoodsActivity",str+"----"+position);
+
+    }
+
+
     @Override
     protected void initView() {
 
@@ -206,7 +225,41 @@ public class SureGoodsActivity extends BaseActivity   {
                 Glide.with(mContext).load(bean.getStore().getStoreImg()).error(R.color.c_press).into(imageView);
                 holder.setText(R.id.tv_item_sure_order_shop_title,bean.getStore().getStoreName())
                       .setText(R.id.tv_sure_order_shop_goods_num,"共"+bean.getCount()+"件商品")
-                        .setText(R.id.tv_sure_order_xiaoji,"¥"+bean.getXiaoji());
+                        .setText(R.id.tv_sure_order_xiaoji,"¥"+bean.getXiaoji())
+                        .setText(R.id.tv_sure_order_kuaidi,"快递¥"+bean.getYunfei());
+
+
+                EditText et_sure_order_liuyan = (EditText) holder.getView(R.id.et_sure_order_liuyan);
+                et_sure_order_liuyan.setTag(position);//存tag值
+
+
+                et_sure_order_liuyan.addTextChangedListener(new TextWatcher() {
+                    @Override
+                    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+                    }
+
+                    @Override
+                    public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                        Log.d("SureGoodsActivity","bean.getStore().getStoreID()"+bean.getStore().getStoreID());
+//                        ((SureGoodsActivity)mContext).saveEditData(position, s.toString(),bean.getStore().getStoreID());
+
+
+
+                    }
+
+                    @Override
+                    public void afterTextChanged(Editable s) {
+                        if(s!=null){
+                            int position = (int) et_sure_order_liuyan.getTag();//取tag值
+                            ((SureGoodsActivity)mContext).saveEditData(position, s.toString(),bean.getStore().getStoreID());
+                            bean.setLiuyan(s.toString());
+
+                        }
+                    }
+                });
+
               //商家下面的商品订单列表
                 SureGoodsListAdapter sureGoodsListAdapter = new SureGoodsListAdapter(mContext,0);
                 LinearLayoutManager linearLayoutManager = new LinearLayoutManager(mContext);
@@ -346,8 +399,11 @@ public class SureGoodsActivity extends BaseActivity   {
 //        }
 //    }
 
+
+
     @Override
     protected void initData() {
+        addressID = SPUtils.getPrefString(mContext, Config.default_address,"0");
         showProgress();
         getData();
     }
@@ -373,6 +429,7 @@ public class SureGoodsActivity extends BaseActivity   {
             Map<String,String>map=new HashMap<String,String>();
             map.put("user_id", getUserId());
             map.put("is_byNow",isBuyNow);
+            map.put("addressID",addressID);
             map.put("sign",  GetSign.getSign(map));
 
             ApiRequest.hourDaoSureOrder(map,item, new MyCallBack<SureOrderObj>(mContext,pcfl,pl_load) {
@@ -387,12 +444,13 @@ public class SureGoodsActivity extends BaseActivity   {
 //                    minMoney = obj.getCity_list().getMin_money();
                     setData(obj);
                     orderGoodsListBean= obj.getOrderGoods_list();
+
                 }
             });
         }else if(isSpecialBuy){
             Map<String,String>map=new HashMap<String,String>();
             map.put("user_id", getUserId());
-            map.put("sign", "admin123");
+            map.put("sign", GetSign.getSign(map));
             ApiRequest.specialSureOrder(map,specialGoodsItem, new MyCallBack<SureOrderObj>(mContext,pcfl,pl_load) {
                 @Override
                 public void onSuccess(SureOrderObj obj) {
@@ -437,7 +495,7 @@ public class SureGoodsActivity extends BaseActivity   {
             }else{//普通商品下单
                 Map<String, String> map = new HashMap<String, String>();
                 map.put("user_id", getUserId());
-                map.put("sign", "admin123");
+                map.put("sign", GetSign.getSign(map));
                 map.put("is_byNow",isBuyNow);
                 ApiRequest.hourDaoSureOrder(map, item, new MyCallBack<SureOrderObj>(mContext, pcfl, pl_load) {
                     @Override
@@ -461,11 +519,11 @@ public class SureGoodsActivity extends BaseActivity   {
         youHuiNum = obj.getYouhui_num()+"";
         setYouHuiNum(youHuiNum);
         beanProportion = obj.getKeeping_bean_proportion();//1元多少养生豆
-        if(notEmpty(obj.getAddress_list())){
+
+        if(((obj.getAddress_list().toString().length()<1))){
             ll_sure_order_select_address.setVisibility(View.GONE);
             ll_sure_order_address.setVisibility(View.VISIBLE);
-
-            SureOrderObj.AddressListBean addressListBean = obj.getAddress_list().get(0);
+            SureOrderObj.AddressListBean addressListBean = (SureOrderObj.AddressListBean) obj.getAddress_list();
             addressId=addressListBean.getId();
 
             tv_sure_order_name.setText(addressListBean.getRecipient());
@@ -720,24 +778,21 @@ public class SureGoodsActivity extends BaseActivity   {
     }
 
     private void commitHourDaoGoods(int checkId) {
+        remarkList.clear();
         StoreOrderItem storeOrderItem = new StoreOrderItem();
         StoreOrderItem.StoreOrder  storeOrder = new StoreOrderItem.StoreOrder();
         List<SureGoodsItem> goods_list = new ArrayList<>();
-        List<Remark> remarkList = new ArrayList<>();
         SureGoodsItem sureGoodsItem ;
-        Remark remark ;
-        for (int i = 0; i < orderGoodsListBean.size(); i++) {
-            //订单商铺
-            SureOrderObj.OrderGoodsListBean obj = orderGoodsListBean.get(i);
-            remark = new Remark();
-            remark.setStoreID(obj.getStore().getStoreID());
-            remark.setRemark("I"+i);
-            remarkList.add(remark);
-        }
 
-        storeOrder.setRemarkList(remarkList);
+
+
 
         for (int a = 0; a < orderGoodsListBean.size(); a++) {
+            remark = new Remark();
+            remark.setRemark(orderGoodsListBean.get(a).getLiuyan());
+            remark.setStoreID(orderGoodsListBean.get(a).getStore().getStoreID());
+            remarkList.add(a,remark);
+            storeOrder.setRemarkList(remarkList);//存储用户留言
             //订单商铺
             SureOrderObj.OrderGoodsListBean obj = orderGoodsListBean.get(a);
              for(int j = 0; j < obj.getGoodsList().size();j++){//
@@ -754,20 +809,6 @@ public class SureGoodsActivity extends BaseActivity   {
         storeOrder.setGoods_list(goods_list);
         storeOrderItem.setBody(storeOrder);
 
-//        item = new ShoppingCartItem();
-//        List<  new ArrayList<>();
-//       ShoppingCartItem.BodyBean bodyBean;
-//        for (int i = 0; i < adapter.getList().size(); i++) {
-//            SureOrderObj.GoodsListBean obj = (SureOrderObj.GoodsListBean) adapter.getList().get(i);
-//            bodyBean = new ShoppingCartItem.BodyBean();
-//            bodyBean.setShopping_cart_id(obj.getShopping_cart_id());
-//            bodyBean.setGoods_id(obj.getGoods_id());
-//            bodyBean.setSpecification_id(obj.getSpecification_id());
-//            bodyBean.setNumber(obj.getNumber());
-//            body.add(bodyBean);
-//        }
-//        item.setBody(body);
-
         showLoading();
 //        SureOrderObj.GoodsListBean bean= (SureOrderObj.GoodsListBean) adapter.getList().get(0);
         Map<String,String>map=new HashMap<String,String>();
@@ -779,13 +820,13 @@ public class SureGoodsActivity extends BaseActivity   {
         map.put("invoice_tax_number",faPiaoCode);
         map.put("coupon_id",youHuiQuanId+"");
         map.put("keeping_bean",sb_sure_order.isChecked()?ysd+"":"0");
-        map.put("sign","admin123");
+
         if(isHourDao){
             map.put("is_byNow", isBuyNow);
         }else{
             map.put("is_byNow", "1");
         }
-
+        map.put("sign",GetSign.getSign(map));
         ApiRequest.commitHourDaoGoods(map,storeOrderItem, new MyCallBack<CommitGoodsObj>(mContext) {
             @Override
             public void onSuccess(CommitGoodsObj obj) {
@@ -912,6 +953,8 @@ public class SureGoodsActivity extends BaseActivity   {
     private void weiXinPay(OrderBean orderBean) {
         new WXPay(mContext).pay(orderBean);
     }
+
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {

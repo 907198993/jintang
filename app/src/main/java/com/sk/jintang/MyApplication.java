@@ -15,6 +15,8 @@ import com.github.retrofitutil.NetWorkManager;
 import com.hyphenate.easeui.EaseUI;
 import com.iflytek.cloud.SpeechUtility;
 import com.squareup.leakcanary.LeakCanary;
+import com.tencent.bugly.Bugly;
+import com.tencent.bugly.beta.Beta;
 import com.umeng.socialize.PlatformConfig;
 import com.umeng.socialize.UMShareAPI;
 import com.uuzuche.lib_zxing.activity.ZXingLibrary;
@@ -30,6 +32,9 @@ public class MyApplication extends MultiDexApplication {
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
         MultiDex.install(this);
+        // 安装tinker
+        Beta.installTinker();
+
     }
     @Override
     public void onCreate() {
@@ -37,6 +42,11 @@ public class MyApplication extends MultiDexApplication {
 //        讯飞初始化
 //        SpeechUtility.createUtility(this, "appid=" + Config.xunfei_app_id);
         super.onCreate();
+
+        // 这里实现SDK初始化，appId替换成你的在Bugly平台申请的appId
+        // 调试时，将第三个参数改为true
+        Bugly.init(this, "95dce1c2f4", false);
+
         LeakCanary.install(this);
         ImagePipelineConfig frescoConfig = ImagePipelineConfig.newBuilder(this).setDownsampleEnabled(true).build();
         Fresco.initialize(this, frescoConfig);
