@@ -32,7 +32,7 @@ public class SureOrderObj extends BaseObj {
         private int is_yincang;
         private int keeping_bean_proportion;
         private double total_up;
-        private Object address_list;
+        private List<AddressListBean> address_list;
         private List<OrderGoodsListBean> orderGoods_list;
 
         public double getSubtotal() {
@@ -107,11 +107,11 @@ public class SureOrderObj extends BaseObj {
             this.total_up = total_up;
         }
 
-    public Object getAddress_list() {
+    public List<AddressListBean> getAddress_list() {
         return address_list;
     }
 
-    public void setAddress_list(Object address_list) {
+    public void setAddress_list(List<AddressListBean> address_list) {
         this.address_list = address_list;
     }
 

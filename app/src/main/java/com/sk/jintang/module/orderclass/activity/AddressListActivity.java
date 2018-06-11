@@ -173,6 +173,9 @@ public class AddressListActivity extends BaseActivity implements LoadMoreAdapter
             @Override
             public void onSuccess(List<AddressObj> list) {
                 adapter.setList(list,true);
+                if(list.size()==1){
+                    SPUtils.setPrefString(mContext, Config.default_address,list.get(0).getId()+"");
+                }
             }
         });
 

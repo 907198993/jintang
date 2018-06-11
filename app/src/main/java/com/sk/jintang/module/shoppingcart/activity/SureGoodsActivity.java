@@ -33,6 +33,7 @@ import com.github.baseclass.adapter.LoadMoreAdapter;
 import com.github.baseclass.adapter.LoadMoreViewHolder;
 import com.github.baseclass.adapter.ViewHolder;
 import com.github.baseclass.rx.IOCallBack;
+import com.google.gson.internal.LinkedTreeMap;
 import com.sk.jintang.Config;
 import com.sk.jintang.GetSign;
 import com.sk.jintang.R;
@@ -120,7 +121,7 @@ public class SureGoodsActivity extends BaseActivity   {
     private String faPiaoName="";
     private String faPiaoCode="";
     private int youHuiMoney=0;
-    private int addressId;
+//    private int addressId;
     private int youHuiQuanId=0;
     private int ysd=0;
     double orderTotalMoney;
@@ -405,12 +406,12 @@ public class SureGoodsActivity extends BaseActivity   {
     protected void initData() {
         addressID = SPUtils.getPrefString(mContext, Config.default_address,"0");
         showProgress();
-        getData();
+        getData(addressID);
     }
 
 
 
-    private void getData() {
+    private void getData(String addressID) {
         if(isHourDao){
             item = new ShoppingCartItem();
             List<ShoppingCartItem.BodyBean> body = new ArrayList<>();
@@ -520,12 +521,11 @@ public class SureGoodsActivity extends BaseActivity   {
         setYouHuiNum(youHuiNum);
         beanProportion = obj.getKeeping_bean_proportion();//1元多少养生豆
 
-        if(((obj.getAddress_list().toString().length()<1))){
+        if(obj.getAddress_list().size()>=1){
             ll_sure_order_select_address.setVisibility(View.GONE);
             ll_sure_order_address.setVisibility(View.VISIBLE);
-            SureOrderObj.AddressListBean addressListBean = (SureOrderObj.AddressListBean) obj.getAddress_list();
-            addressId=addressListBean.getId();
-
+            SureOrderObj.AddressListBean addressListBean = (SureOrderObj.AddressListBean) obj.getAddress_list().get(0) ;
+            addressID= addressListBean.getId()+"";
             tv_sure_order_name.setText(addressListBean.getRecipient());
             tv_sure_order_phone.setText(addressListBean.getPhone());
             tv_sure_order_address.setText("收货地址: "+addressListBean.getShipping_address()+""+addressListBean.getShipping_address_details());
@@ -813,7 +813,7 @@ public class SureGoodsActivity extends BaseActivity   {
 //        SureOrderObj.GoodsListBean bean= (SureOrderObj.GoodsListBean) adapter.getList().get(0);
         Map<String,String>map=new HashMap<String,String>();
         map.put("user_id",getUserId());
-        map.put("addres_id",addressId+"");
+        map.put("addres_id",addressID);
         map.put("invoice_type",faPiaoType);
         map.put("invoice_code",faPiaoHead);
         map.put("invoice_name",faPiaoName);
@@ -991,12 +991,13 @@ public class SureGoodsActivity extends BaseActivity   {
                         ll_sure_order_select_address.setVisibility(View.GONE);
                         ll_sure_order_address.setVisibility(View.VISIBLE);
 
-
+                    showProgress();
                     AddressObj addressObj = (AddressObj) data.getSerializableExtra(Config.IParam.address);
-                    addressId=addressObj.getId();
-                    tv_sure_order_name.setText(addressObj.getRecipient());
-                    tv_sure_order_phone.setText(addressObj.getPhone());
-                    tv_sure_order_address.setText("收货地址: "+addressObj.getShipping_address()+""+addressObj.getShipping_address_details());
+                    addressID=addressObj.getId()+"";
+//                    tv_sure_order_name.setText(addressObj.getRecipient());
+//                    tv_sure_order_phone.setText(addressObj.getPhone());
+//                    tv_sure_order_address.setText("收货地址: "+addressObj.getShipping_address()+""+addressObj.getShipping_address_details());
+                    getData(addressID);
                     break;
             }
         }

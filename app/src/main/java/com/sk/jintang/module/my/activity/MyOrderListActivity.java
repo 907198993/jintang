@@ -212,4 +212,9 @@ public class MyOrderListActivity extends BaseActivity {
     }
 
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        this.onUnSubscription();
+    }
 }
