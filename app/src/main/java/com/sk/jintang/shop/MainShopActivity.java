@@ -274,7 +274,6 @@ public class MainShopActivity extends BaseActivity implements AddWidget.OnAddCli
                         }else{
                             ToastUtils.showToast(mContext,"未成功关注");
                         }
-
                     }
                 });
             }else{

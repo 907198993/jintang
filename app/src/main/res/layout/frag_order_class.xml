@@ -155,6 +155,7 @@
                         android:layout_weight="1"
                         android:layout_height="match_parent"
                         android:text="筛选"
+                        android:visibility="gone"
                         android:gravity="center"
                         android:drawableRight="@drawable/order1"
                         android:paddingRight="10dp"

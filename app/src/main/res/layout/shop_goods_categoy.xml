@@ -9,6 +9,7 @@
     <include layout="@layout/app_title"/>
 
     <RelativeLayout
+        android:id="@+id/tv_my_quanbubaobei"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:orientation="horizontal"
@@ -19,7 +20,7 @@
         >
 
         <com.github.customview.MyTextView
-            android:id="@+id/tv_my_fenxiao"
+
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="全部宝贝"

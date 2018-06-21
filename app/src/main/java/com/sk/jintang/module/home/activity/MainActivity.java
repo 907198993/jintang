@@ -437,7 +437,7 @@ public class MainActivity extends BaseActivity {
     @Override
     public void onBackPressed() {
         if ((System.currentTimeMillis() - mExitTime) > 1500) {
-            showMsg("再按一次退出程序");
+            showToastS("再按一次退出程序");
             mExitTime = System.currentTimeMillis();
         } else {
             super.onBackPressed();

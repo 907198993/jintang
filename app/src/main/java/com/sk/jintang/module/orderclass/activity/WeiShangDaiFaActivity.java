@@ -91,8 +91,8 @@ public class WeiShangDaiFaActivity extends BaseActivity implements LoadMoreAdapt
                     tv_goods_yuanjia.setVisibility(View.VISIBLE);
                 }
 
-                View tv_goods_baoyou = holder.getView(R.id.tv_goods_baoyou);
-                tv_goods_baoyou.setVisibility(bean.getBaoyou()==1?View.VISIBLE:View.GONE);
+//                View tv_goods_baoyou = holder.getView(R.id.tv_goods_baoyou);
+//                tv_goods_baoyou.setVisibility(bean.getBaoyou()==1?View.VISIBLE:View.GONE);
                 ImageView iv_goods_img = holder.getImageView(R.id.iv_goods_img);
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
                 layoutParams.weight = imgWidth;

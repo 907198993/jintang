@@ -17,6 +17,7 @@ import com.github.androidtools.PhoneUtils;
 import com.github.androidtools.inter.MyOnClickListener;
 import com.github.baseclass.adapter.LoadMoreAdapter;
 import com.github.baseclass.adapter.LoadMoreViewHolder;
+import com.sk.jintang.GetSign;
 import com.sk.jintang.R;
 import com.sk.jintang.base.BaseFragment;
 import com.sk.jintang.base.MyCallBack;
@@ -64,17 +65,17 @@ public class ShopTab1Fragment extends BaseFragment  {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        Bundle bundle = getArguments();//从activity传过来的Bundle
-        if(bundle!=null){
-            storeId = bundle.getString("storeId");
-        }
+
         return super.onCreateView(inflater, container, savedInstanceState);
 
     }
 
     @Override
     protected void initData() {
-
+        Bundle bundle = getArguments();//从activity传过来的Bundle
+        if(bundle!=null){
+            storeId = bundle.getString("storeId");
+        }
         getData();
     }
     @Override
@@ -84,9 +85,9 @@ public class ShopTab1Fragment extends BaseFragment  {
     }
     private void getData() {
         Map<String, String> map = new HashMap<String, String>();
-        map.put("sign", "admin123");
         map.put("storeId", storeId);
         map.put("userId",getUsersId());
+        map.put("sign", GetSign.getSign(map));
         ApiRequest.getShopsDetail(map, new MyCallBack<ShopDetailObj>(mContext) {
             @Override
             public void onSuccess(ShopDetailObj obj) {
@@ -125,6 +126,7 @@ public class ShopTab1Fragment extends BaseFragment  {
     //商品列表
     public void setList(){
         screenWidth = PhoneUtils.getScreenWidth(getActivity());
+
         shopAdapter = new LoadMoreAdapter<ShopDetailObj.GoodsListBean>(getActivity(), R.layout.shop_goods_detail_item, 10) {
             @Override
             public void bindData(LoadMoreViewHolder holder, int i, ShopDetailObj.GoodsListBean bean) {

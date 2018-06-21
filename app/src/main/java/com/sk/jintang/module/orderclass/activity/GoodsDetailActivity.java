@@ -3,9 +3,11 @@ package com.sk.jintang.module.orderclass.activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomSheetDialog;
 import android.support.v4.content.LocalBroadcastManager;
@@ -28,6 +30,15 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.load.resource.drawable.GlideDrawable;
+import com.bumptech.glide.request.RequestListener;
+import com.bumptech.glide.request.animation.GlideAnimation;
+import com.bumptech.glide.request.target.SimpleTarget;
+import com.bumptech.glide.request.target.Target;
+import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.drawee.interfaces.DraweeController;
+import com.facebook.drawee.view.SimpleDraweeView;
 import com.flyco.tablayout.CommonTabLayout;
 import com.flyco.tablayout.listener.CustomTabEntity;
 import com.flyco.tablayout.listener.OnTabSelectListener;
@@ -105,10 +116,10 @@ public class GoodsDetailActivity extends BaseActivity {
     @BindView(R.id.rv_goods_detail_evaluate)
     RecyclerView rv_goods_detail_evaluate;
 
-    @BindView(R.id.rv_goods_detail_img)
-    RecyclerView rv_goods_detail_img;
+//    @BindView(R.id.rv_goods_detail_img)
+//    RecyclerView rv_goods_detail_img;
 
-    GoodsDetailImgAdapter imgAdapter;
+//    GoodsDetailImgAdapter imgAdapter;
 
     @BindView(R.id.bn_goods_detail)
     Banner bn_goods_detail;
@@ -136,6 +147,10 @@ public class GoodsDetailActivity extends BaseActivity {
     ImageView iv_goods_detail_collect;
     @BindView(R.id.ctl_goods_detail)
     CommonTabLayout ctl_goods_detail;
+    @BindView(R.id.image_detail)
+    ImageView image_detail;
+
+
     private String goodsId;
     private ArrayList<String> bannerList;
     private MyTextView selectGuiGeView;
@@ -177,7 +192,7 @@ public class GoodsDetailActivity extends BaseActivity {
                     ctl_goods_detail.setVisibility(View.VISIBLE);
                     if(keJian(ll_goods_detail_pj) ){
                         ctl_goods_detail.setCurrentTab(1);
-                    }else if(keJian(rv_goods_detail_img)&&keJian(ll_goods_detail_tuijian)==false){
+                    }else if(keJian(image_detail)&&keJian(ll_goods_detail_tuijian)==false){
                         ctl_goods_detail.setCurrentTab(2);
                     }else if(keJian(rv_goods_detail)||keJian(ll_goods_detail_tuijian)){
                         ctl_goods_detail.setCurrentTab(3);
@@ -253,10 +268,10 @@ public class GoodsDetailActivity extends BaseActivity {
         rv_goods_detail.setAdapter(adapter);
 
 
-        imgAdapter=new GoodsDetailImgAdapter(mContext,R.layout._item_);
-        rv_goods_detail_img.setNestedScrollingEnabled(false);
-        rv_goods_detail_img.setLayoutManager(new LinearLayoutManager(mContext));
-        rv_goods_detail_img.setAdapter(imgAdapter);
+//        imgAdapter=new GoodsDetailImgAdapter(mContext,R.layout._item_);
+//        rv_goods_detail_img.setNestedScrollingEnabled(false);
+//        rv_goods_detail_img.setLayoutManager(new LinearLayoutManager(mContext));
+//        rv_goods_detail_img.setAdapter(imgAdapter);
 
         evaluateAdapter=new LoadMoreAdapter<GoodsDetailObj.PingjiaListBean>(mContext,R.layout.item_goods_detail_evaluate,0) {
             @Override
@@ -327,12 +342,49 @@ public class GoodsDetailActivity extends BaseActivity {
                 setBanner(obj);
                 setGoodsData(obj);
                 HxUserId = obj.getHxUserId();
-                imgAdapter.setList(obj.getGoods_details(),true);
+                loadIntoUseFitWidth(mContext, obj.getGoods_details().get(0), R.drawable.loading_yu, image_detail); //展示详情图片
+
             }
         });
 
     }
 
+
+
+    /**
+     * 自适应宽度加载图片。保持图片的长宽比例不变，通过修改imageView的高度来完全显示图片。
+     */
+    public static void loadIntoUseFitWidth(Context context, final String imageUrl, int errorImageId, final ImageView imageView) {
+        Glide.with(context)
+                .load(imageUrl)
+                .diskCacheStrategy(DiskCacheStrategy.SOURCE)
+                .listener(new RequestListener<String, GlideDrawable>() {
+                    @Override
+                    public boolean onException(Exception e, String model, Target<GlideDrawable> target, boolean isFirstResource) {
+                        return false;
+                    }
+
+                    @Override
+                    public boolean onResourceReady(GlideDrawable resource, String model, Target<GlideDrawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
+                        if (imageView == null) {
+                            return false;
+                        }
+                        if (imageView.getScaleType() != ImageView.ScaleType.FIT_XY) {
+                            imageView.setScaleType(ImageView.ScaleType.FIT_XY);
+                        }
+                        ViewGroup.LayoutParams params = imageView.getLayoutParams();
+                        int vw = imageView.getWidth() - imageView.getPaddingLeft() - imageView.getPaddingRight();
+                        float scale = (float) vw / (float) resource.getIntrinsicWidth();
+                        int vh = Math.round(resource.getIntrinsicHeight() * scale);
+                        params.height = vh + imageView.getPaddingTop() + imageView.getPaddingBottom();
+                        imageView.setLayoutParams(params);
+                        return false;
+                    }
+                })
+                .placeholder(errorImageId)
+                .error(errorImageId)
+                .into(imageView);
+    }
     private void setGoodsData(GoodsDetailObj obj) {
         isCollect = obj.getIs_collect() == 1;
         if (isCollect) {

@@ -45,6 +45,8 @@ public class ShopActivity extends BaseActivity {
     @BindView(R.id.shop_img)
     MyImageView shopImg;
     @BindView(R.id.shop_title)
+
+
     MyTextView shopTitle;
     @BindView(R.id.shop_address)
     MyTextView shopAddress;
@@ -82,18 +84,20 @@ public class ShopActivity extends BaseActivity {
           getStoreId(pinPaiId);
         }else {
             getData(storeId);
+            initUiAndData(storeId);
         }
-        initUiAndData();
     }
 
     private void getStoreId(String brand_id) {
         Map<String, String> map = new HashMap<String, String>();
-        map.put("sign",  GetSign.getSign(map));
         map.put("brand_id", brand_id);
+        map.put("sign",  GetSign.getSign(map));
         ApiRequest.GetBrandStore(map, new MyCallBack<StoreObj>(mContext, pcfl, pl_load) {
             @Override
             public void onSuccess(StoreObj obj) {
                 getData(obj.getStoreID());
+                storeId = obj.getStoreID();
+                initUiAndData(obj.getStoreID());
             }
         });
 
@@ -103,7 +107,7 @@ public class ShopActivity extends BaseActivity {
     /**
      * 初始化话界面和数据
      */
-    private void initUiAndData() {
+    private void initUiAndData(String storeId) {
         if (tab_layout != null) {
             tab_layout.setupWithViewPager(myViewPageer);
         }
@@ -117,12 +121,11 @@ public class ShopActivity extends BaseActivity {
         pagerAdapter.addFragment(ShopTab1Fragment,"首页");
         pagerAdapter.addFragment(ShopTab2Fragment,"全部宝贝");
         pagerAdapter.addFragment(ShopTab3Fragment,"新品");
-        myViewPageer.setAdapter(pagerAdapter);
-        myViewPageer.setOffscreenPageLimit(3);
+
 
 
         Bundle bundle = new Bundle();
-        bundle.putString("storeId", storeId);
+        bundle.putString("storeId",storeId);
         ShopTab1Fragment.setArguments(bundle);
 
         Bundle bundle1 = new Bundle();
@@ -132,6 +135,8 @@ public class ShopActivity extends BaseActivity {
         Bundle bundle2 = new Bundle();
         bundle2.putString("storeId", storeId);
         ShopTab3Fragment.setArguments(bundle2);
+        myViewPageer.setAdapter(pagerAdapter);
+        myViewPageer.setOffscreenPageLimit(3);
     }
 
     private void getData(String storeId) {
@@ -151,6 +156,7 @@ public class ShopActivity extends BaseActivity {
                 shopTitle.setText(obj.getStoreName());
                 shopAddress.setText(obj.getStoreAddress());
                 Glide.with(mContext).load(obj.getStoreHeadImg()).error(R.drawable.home12).into(shopImg);
+
             }
         });
     }

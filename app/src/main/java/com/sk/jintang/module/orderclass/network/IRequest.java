@@ -209,19 +209,19 @@ public interface IRequest {
     Call<ResponseObj<List<GoodsSearchObj>>> goodsForPP(@QueryMap Map<String,String> map);
 
     //所有城市
-    @GET("api/Lib/GetAllCity")
+    @GET("api/MyLib/GetAllCity")
     Call<ResponseObj<List<CityObj>>> getAllCity(@QueryMap Map<String,String> map);
 
     //热门城市
-    @GET("api/Lib/GetCityHot")
+    @GET("api/MyLib/GetCityHot")
     Call<ResponseObj<List<CityObj>>> getHotCity(@QueryMap Map<String,String> map);
 
     //获取省份
-    @GET("api/Lib/GetProvince")
+    @GET("api/MyLib/GetProvince")
     Call<ResponseObj<List<CityObj>>> getProvince(@QueryMap Map<String,String> map);
 
     //根据省份获取城市
-    @GET("api/Lib/GetCity")
+    @GET("api/MyLib/GetCity")
     Call<ResponseObj<List<CityObj>>> getCityForProvince(@QueryMap Map<String,String> map);
 
     //24小时到

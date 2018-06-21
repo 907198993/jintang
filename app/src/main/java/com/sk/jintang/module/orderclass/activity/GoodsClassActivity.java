@@ -146,8 +146,8 @@ public class GoodsClassActivity extends BaseActivity implements LoadMoreAdapter.
                     tv_goods_yuanjia.setVisibility(View.VISIBLE);
                 }
 
-                View tv_goods_baoyou = holder.getView(R.id.tv_goods_baoyou);
-                tv_goods_baoyou.setVisibility(bean.getBaoyou()==1?View.VISIBLE:View.GONE);
+//                View tv_goods_baoyou = holder.getView(R.id.tv_goods_baoyou);
+//                tv_goods_baoyou.setVisibility(bean.getBaoyou()==1?View.VISIBLE:View.GONE);
 
                 ImageView iv_goods_img = holder.getImageView(R.id.iv_goods_img);
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
@@ -365,9 +365,9 @@ public class GoodsClassActivity extends BaseActivity implements LoadMoreAdapter.
             TextView tv_search_price_order_desc = priceOrderView.findViewById(R.id.tv_search_price_order_desc);
             tv_search_price_order_desc.setOnClickListener(getOrderListener(0,1,tv_search_price_order_desc,"价格↓"));
 
-            pricePopu=new MyPopupwindow(mContext,priceOrderView,PhoneUtils.getScreenWidth(mContext)/4,-1);
+            pricePopu=new MyPopupwindow(mContext,priceOrderView,PhoneUtils.getScreenWidth(mContext)/3,-1);
         }
-        pricePopu.showAsDropDown(ll_goods_order,PhoneUtils.getScreenWidth(mContext)/4*1,0);
+        pricePopu.showAsDropDown(ll_goods_order,PhoneUtils.getScreenWidth(mContext)/3*1,0);
     }
 //    销量
     private void showXiaoLiangPopu() {
@@ -383,9 +383,9 @@ public class GoodsClassActivity extends BaseActivity implements LoadMoreAdapter.
             TextView tv_search_xl_order_desc = xiaoLiangOrderView.findViewById(R.id.tv_search_xl_order_desc);
             tv_search_xl_order_desc.setOnClickListener(getOrderListener(1,1,tv_search_xl_order_desc,"销量↓"));
 
-            xiaoLiangPopu=new MyPopupwindow(mContext,xiaoLiangOrderView,PhoneUtils.getScreenWidth(mContext)/4,-1);
+            xiaoLiangPopu=new MyPopupwindow(mContext,xiaoLiangOrderView,PhoneUtils.getScreenWidth(mContext)/3,-1);
         }
-        xiaoLiangPopu.showAsDropDown(ll_goods_order,PhoneUtils.getScreenWidth(mContext)/4*2,0);
+        xiaoLiangPopu.showAsDropDown(ll_goods_order,PhoneUtils.getScreenWidth(mContext)/3*2,0);
     }
     @OnClick({R.id.tv_goods_price,
             R.id.tv_goods_xl,R.id.iv_goods_class_scan,R.id.ll_goods_class_search,R.id.iv_goods_msg,R.id.tv_order_class_sx, R.id.tv_goods_tuijian ,R.id.tv_goods_shaixuan_reset,R.id.tv_goods_shaixuan_complete})
@@ -645,6 +645,12 @@ public class GoodsClassActivity extends BaseActivity implements LoadMoreAdapter.
         super.onResume();
     }
 
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        this.onUnSubscription();
+    }
 
     @Override
     public void loadMore() {

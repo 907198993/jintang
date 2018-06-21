@@ -202,7 +202,6 @@ public class ShopGoodsCategoryListActivity extends BaseActivity  implements Load
         map.put("sorting_way", sorting_way);
         map.put("page", page + "");
         map.put("pagesize", 10 + "");
-        map.put("sign", "admin123");
         map.put("storeId", storeId);
         map.put("newGoods", "0");//默认0
         map.put("sign",  GetSign.getSign(map));

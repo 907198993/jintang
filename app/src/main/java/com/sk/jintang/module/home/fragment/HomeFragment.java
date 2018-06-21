@@ -270,7 +270,7 @@ public class HomeFragment extends BaseFragment implements LoadMoreAdapter.OnLoad
        //商铺种类入口
         rv_home_shop_category.setAdapter(homeShopAdapter);
         rv_home_shop_category.setNestedScrollingEnabled(false);
-        rv_home_shop_category.setLayoutManager(new GridLayoutManager(mContext,4));
+        rv_home_shop_category.setLayoutManager(new GridLayoutManager(mContext,5));
 
         //工厂直达
         rv_home_gczd.setAdapter(homeGCZDAdapter);

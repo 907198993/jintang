@@ -188,7 +188,7 @@ public abstract class BaseFragment extends IBaseFragment implements View.OnClick
         return SPUtils.getPrefString(mContext,Config.user_id,"0");
     }
     protected String getSign(){
-        return getSign("user_id",getUserId());
+        return getSign("user_id",getUsersId());
     }
     protected String getSign(String key,String value){
         return GetSign.getSign(key,value);
